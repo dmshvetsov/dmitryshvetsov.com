@@ -1,0 +1,11 @@
+name: Dmitry Shvetsov
+bio: |
+  Upbeat Software Developer and Mentor.
+  I help novice developers gain experience and write good code.
+  Author of <a href="http://gum.co/team-lead-101">Team Lead 101</a>.
+  Read more <a href="/about/">about me</a>.
+avatar: ./avatars/dmitry-shvetsov.jpeg
+social:
+  - url: https://twitter.com/iamdidev
+  - url: https://github.com/iamdidev
+featured: true
