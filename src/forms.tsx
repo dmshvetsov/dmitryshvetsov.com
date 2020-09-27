@@ -12,5 +12,12 @@ export default {
     submitText: 'Sign Me Up',
     hideName: true,
     format: 'inline'
+  },
+  // Send the productivity framework form
+  PRODUCTIVITY_FRAMEWORK: {
+    formId: '1223470',
+    template: 'Clare',
+    submitText: 'Send Me a Copy',
+    hideName: true
   }
 }
