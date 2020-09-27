@@ -48,6 +48,7 @@ module.exports = {
         name: 'mdPages',
         path: `${__dirname}/src/md-pages/`
       }
-    }
+    },
+    'gatsby-plugin-sitemap'
   ]
 }
