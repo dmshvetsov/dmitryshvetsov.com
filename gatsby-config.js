@@ -49,6 +49,11 @@ module.exports = {
         path: `${__dirname}/src/md-pages/`
       }
     },
-    'gatsby-plugin-sitemap'
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        exclude: ['congratulations', 'download-your-productivity-framework']
+      }
+    }
   ]
 }
