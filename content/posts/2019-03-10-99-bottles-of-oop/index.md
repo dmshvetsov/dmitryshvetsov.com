@@ -3,8 +3,10 @@ title: "99 Bottles of Object-Oriented Programming"
 slug: "99-bottles-of-oop"
 author: "Dmitry Shvetsov"
 date: "2019-03-10"
-hero: images/hero.png
+hero: images/hero.jpg
 ---
+
+_ Photo by <a href="https://unsplash.com/@christinhumephoto?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Christin Hume</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a> _
 
 ## Review of “99 Bottle of OOP” book by Sandi Metz and Katrina Owen
 

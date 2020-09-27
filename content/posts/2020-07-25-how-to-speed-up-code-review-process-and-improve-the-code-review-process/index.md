@@ -3,10 +3,12 @@ title: "How to Speed Up Code Review Process With Code Review Time"
 slug: "how-to-speed-up-code-review-process-and-improve-the-code-review-process"
 author: "Dmitry Shvetsov"
 date: "2020-07-25"
-hero: images/hero.png
+hero: images/hero.jpg
 ---
 
 This is a chapter from the ebook **Team Lead 101: Manage and Grow Engineering Teams in Small Startups**. [Get your copy here.](https://gum.co/team-lead-101)
+
+_ Photo by <a href="https://unsplash.com/@marg_cs?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Margarida CSilva</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a> _ 
 
 * * *
 

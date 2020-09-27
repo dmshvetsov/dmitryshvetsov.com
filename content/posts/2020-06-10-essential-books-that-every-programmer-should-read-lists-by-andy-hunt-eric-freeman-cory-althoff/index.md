@@ -16,7 +16,7 @@ I’ve been asking experienced programmers, technical authors, computer science 
 
 For book recommendations from Kent Beck, Uncle Bob Martin, David Heinemeier Hanson, Jeff Atwood, and Bozhidar Batsov, read [the first part of the series](https://iamdi.dev/essential-books-that-every-programmer-should-read/).
 
-> . . .
+---
 
 I reached out to [Andy Hunt](https://twitter.com/PragmaticAndy) to share his list of essential books for programmers. He recommended books more angled toward programming leadership:
 
@@ -28,7 +28,7 @@ I reached out to [Andy Hunt](https://twitter.com/PragmaticAndy) to share his lis
 
 Andy Hunt is a programmer, consultant, and author of ten books, including one of the most recommended books for programmers, _The Pragmatic Programmer_. He was one of the 17 original authors of the Agile Manifesto and founders of the Agile Alliance. He is also the publisher and co-founder of the Pragmatic Bookshelf series for software developers.
 
-> . . .
+---
 
 [Eric Freeman](https://twitter.com/erictfree) shared his view on essential books for programmers in [this tweet](https://twitter.com/erictfree/status/1247955761659031556?s=20):
 
@@ -39,7 +39,7 @@ Andy Hunt is a programmer, consultant, and author of ten books, including one of
 
 Eric Freeman is a computer science Phd, author of the Head First book series, former CTO of Disney Online,  educator, and entrepreneur.
 
-> . . .
+---
 
 [Cory Althoff](https://twitter.com/coryalthoff) shared in [this tweet](https://twitter.com/coryalthoff/status/1240544295473410049?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed&ref_url=notion%3A%2F%2Fwww.notion.so%2Fshvetsovdm%2FKnowledge-Business-19a582a4b87844f6a8a3be29fcd8891f) an extensive list of the best books for programmers. You can read the original list in [this article](https://selftaught.blog/best-programming-books/) from his blog.
 
@@ -67,7 +67,7 @@ The Best Programming Books for Your Career:
 
 Cory Althoff is the author of _The Self-Taught Programmer_, a book that has sold over 100,000 copies and is available in eight languages. He is also the founder of [Coding List](https://codinglist.com/).
 
-> . . .
+---
 
 I also want to recommend a great book I read recently called [Essentialism](https://amzn.to/3gQkTdv) by Greg McKeown. It’s about how to achieve more meaningful results by doing less and concentrating on the truly vital parts of our lives.
 
@@ -75,18 +75,22 @@ I also want to recommend a great book I read recently called [Essentialism](http
 
 **Respond to the tweet below**. Which programmer would you ask for advice on which books you should read?
 
-https://twitter.com/iamdidev/status/1270676263305465859?s=20
+<div class="Image__Small">
+  <Tweet tweetId="1270676263305465859" />
+</div>
 
-> . . .
+---
 
 [**Follow me on Twitter**](https://twitter.com/iamdidev). I tweet daily on how to write clean code, grow soft skills, and be a successful developer.
 
-> . . .
+---
 
 If you like this write-up, **share it with friends and colleagues** so more programmers can benefit from these recommendations. Another way to spread the word is to retweet the tweet below.
 
-https://twitter.com/iamdidev/status/1270680029102563335?s=20
+<div class="Image__Small">
+  <Tweet tweetId="1270680029102563335" />
+</div>
 
-> . . .
+---
 
 _All book links above lead to an Amazon store closest to your country. As an Amazon Associate, I earn from qualifying purchases._

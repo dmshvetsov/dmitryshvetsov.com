@@ -96,6 +96,8 @@ Avoid business. Look for a teacher or mentor. Get inspired. You have no limits.
 
 Feel inspired? Make a commitment right now. Say what next phase you are going to achieve this year in the tweet below:
 
-https://twitter.com/iamdidev/status/1224367547136405504
+<div class="Image__Small">
+  <Tweet tweetId="1224367547136405504" />
+</div>
 
 _Disclaimer: as an Amazon Associate I earn from qualifying purchases_ _from two links to Amazon site(s) on this page_.

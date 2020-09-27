@@ -3,8 +3,10 @@ title: "Programming workout"
 slug: "programming-workout"
 author: "Dmitry Shvetsov"
 date: "2018-09-10"
-hero: images/hero.png
+hero: images/hero.jpg
 ---
+
+_ Photo by <a href="https://unsplash.com/@ar1991?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Ayesh Rathnayake</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a> _
 
 ## The way to hone your skills and become a more productive programmer through repetitive exercises
 

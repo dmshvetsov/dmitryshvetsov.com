@@ -5,12 +5,8 @@ module.exports = {
     siteUrl: 'https://dmitryshvetsov.com',
     description: 'Free online mentorship calls. I help novice developers gain experience and write good code.',
     hero: {
-      heading: `Learn the Basics of Managing Software Development Teams in Small Startups
-                <br/><br/>
-                <a href="https://gumroad.com/l/team-lead-101">
-                  <img width="500" height="500" src="/TL101-banner.png" alt="Team Lead 101 book cover">
-                </a>`,
-      maxWidth: 652
+      heading: 'Become A Better Software Developer',
+      maxWidth: '100%'
     },
     social: [
       {
@@ -26,7 +22,7 @@ module.exports = {
         contentPosts: 'content/posts',
         contentAuthors: 'content/authors',
         basePath: '/',
-        authorsPage: false,
+        authorsPage: true,
         sources: {
           local: true
           // contentful: true,

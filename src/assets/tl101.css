@@ -1588,22 +1588,22 @@ select.formkit-select {
  * General
  */
 
-ol {
+.formkit-page ol {
   counter-reset: item;
 }
-ol li {
+.formkit-page ol li {
   display: block;
   font-weight: bold;
 }
-ol li ol li {
+.formkit-page ol li ol li {
   font-weight: normal;
 }
-ol li:before {
+.formkit-page ol li:before {
   content: counters(item, ".") " ";
   counter-increment: item;
 }
 
-a {
+.formkit-page a {
   color: #cfab02;
   font-weight: 600;
 }
@@ -1612,7 +1612,7 @@ a {
  * Gumroad
  */
 
-.gumroad-button {
+.formkit-page .gumroad-button {
   background-color: #fddb3a;
   box-shadow: 0 5px 0 #e8c002;
   color: #41444b;
@@ -1622,11 +1622,11 @@ a {
   text-transform: uppercase;
 }
 
-.gumroad-button:hover {
+.formkit-page .gumroad-button:hover {
   background-color: #fee46c;
 }
 
-.gumroad-button:active {
+.formkit-page .gumroad-button:active {
   box-shadow: none;
   top: 5px;
 }

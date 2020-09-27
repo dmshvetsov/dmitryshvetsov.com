@@ -33,7 +33,9 @@ We always hear the end story—Bill Gates, Mark Zuckerberg, Michale Jordan, Cris
 
 We should not blame ourselves, at least personally. This all comes from  mass media, culture, and the environment. Just think of the phrases we hear so often, like “Because you’re worth it” and “Obey your thirst.” A slogan like that trains us to want instant gratification. We have no time to wait!
 
-https://twitter.com/iamdidev/status/1250418894948298757
+<div class="Image__Small">
+  <Tweet tweetId="1250418894948298757" />
+</div>
 
 The way out from this trap is to see the value of ordinary things—practicing, reading books, asking questions, and learning from mentors and peers. 
 
@@ -105,6 +107,6 @@ After you humbly do what it takes to pursue private wins—“the turn”—then
 
 ## Call To Action
 
-If you resonated with this article, please subscribe to my mailing list to receive more content like this.
+If you resonated with this article, please [subscribe to my mailing list](https://give.iamdi.dev/tbpm-newsletter) to receive more content like this.
 
-\[convertkit form=1272468\]
+<!--\[convertkit form=1272468\]-->

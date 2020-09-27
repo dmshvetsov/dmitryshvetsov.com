@@ -3,10 +3,12 @@ title: "One-on-One Meetings: The Most Important Tool For Engineering Team Leader
 slug: "one-on-one-meetings-the-most-important-tool-for-engineering-team-leader"
 author: "Dmitry Shvetsov"
 date: "2020-07-25"
-hero: images/hero.png
+hero: images/hero.jpg
 ---
 
 This is a chapter from an upcoming book **Team Lead 101: Manage and Grow Engineering Teams in Small Startups**. [Pre-order the book for half of the price here.](https://gum.co/team-lead-101)
+
+_ Photo by <a href="https://unsplash.com/@wocintechchat?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Christina @ wocintechchat.com</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a> _
 
 * * *
 

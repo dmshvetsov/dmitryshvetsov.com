@@ -3,9 +3,10 @@ title: "How to use Webpacker with npm instead of Yarn, Rails guide"
 slug: "how-to-use-webpacker-with-npm-instead-of-yarn-rails-guide"
 author: "Dmitry Shvetsov"
 date: "2018-03-26"
-hero: images/hero.png
+hero: images/hero.jpg
 ---
 
+_ Photo by <a href="https://unsplash.com/@vidarnm?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Vidar Nordli-Mathisen</a> on <a href="https://unsplash.com/s/photos/stubborn?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a> _
 ## This article will guide you how to replace Yarn with npm for Webpacker gem
 
 [Webpacker](https://github.com/rails/webpacker) is an awesome tool and giant step towards front-end friendly development environment in Rails. But Webpacker requires installing Yarn. But what if want to use npm?

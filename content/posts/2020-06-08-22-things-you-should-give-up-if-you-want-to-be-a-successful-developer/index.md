@@ -162,7 +162,7 @@ Code written once will be read dozens or hundreds of times, so strive to write r
 
 > _"Those who have knowledge, don't predict. Those who predict, don't have knowledge."_
 > 
-> _\-- Lao Tzu_
+> _– Lao Tzu_
 
 Less code means fewers bugs and less time to read, lint, compile, review, ship, maintain, and debug.
 

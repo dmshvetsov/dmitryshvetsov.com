@@ -3,10 +3,12 @@ title: "An alternative to Rails `before_action`"
 slug: "an-alternative-to-rails-before-action"
 author: "Dmitry Shvetsov"
 date: "2017-01-29"
-hero: images/hero.png
+hero: images/hero.jpg
 ---
 
 > Rails \`before\_action\` is a good tool but often used incorrectly. In this article, I will show what is wrong and my remedy for \`before\_action\` abuse.
+
+_ Photo by [Waranont (Joe)]("https://unsplash.com/@tricell1991?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText") on (Unsplash)["https://unsplash.com/s/photos/before?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText"] _
 
 Let's assume that we have a task.
 

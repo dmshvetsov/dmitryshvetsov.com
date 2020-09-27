@@ -48,7 +48,7 @@ If you’re an introvert, then it might be really hard to make the first steps t
 
 > _Your brain at positive is 31% more productive than your brain at negative, neutral or stressed_
 > 
-> Shawn Achor
+> _– Shawn Achor_
 
 Positive thinking and happiness empower you to learn and make it through complex projects with tight deadlines.
 
@@ -71,7 +71,7 @@ If you want to be more productive and learn fast and effectively, stay positive!
 
 > _You will never find time for anything. If you want time, you must make it._
 > 
-> Charles Buxton
+> _– Charles Buxton_
 
 People are most creative and productive in the first 2-3 hours of their day. Use those hours wisely and put the most important things first—not the most urgent things.
 
@@ -81,7 +81,9 @@ If your task queue is already full, don’t rush to accept a new important task.
 
 Avoid decision fatigue, like Mark Zuckerberg and Steve Jobs who wear the same thing every day so they don’t have to think about it. Eliminate as many unimportant decisions as you can: what you eat, where you eat, what to wear, what time to wake up, when to check emails, when to plan your day, and so on.
 
-https://twitter.com/iamdidev/status/1228611694873571328?s=20
+<div class="Image__Small">
+  <Tweet tweetId="1228611694873571328?s=20" />
+</div>
 
 Fear, guilt, and resentment are three things that suck energy and kill productivity. How often do you experience these? What causes you to feel these emotions? Find out the answers and eliminate the sources of these emotions.
 
@@ -103,7 +105,7 @@ The point is that there is no “perfect” code because we don’t know the fut
 
 > _Give me six hours to chop down a tree and I will spend the first four sharpening the axe._
 > 
-> Abraham Lincoln
+> _– Abraham Lincoln_
 
 The greatest days started yesterday. Design your day for effortless execution. Don’t make yourself think about what you should be doing during the day.
 

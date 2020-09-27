@@ -3,10 +3,11 @@ title: "Mastering PostgreSQL in Application Development by Dimitri Fontaine"
 slug: "mastering-postgresql-in-application-development-by-dimitri-fontaine"
 author: "Dmitry Shvetsov"
 date: "2019-01-13"
-hero: images/hero.png
+hero: images/hero.jpg
+excerpt: "The Book Review"
 ---
 
-## The book review
+_ Photo by <a href="https://unsplash.com/@duvanelp?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Patrick Duvanel</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a> _
 
 ## For whom
 

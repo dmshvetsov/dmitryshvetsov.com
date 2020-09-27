@@ -39,7 +39,9 @@ Let's see what choices we might have during a usual day:
 
 You got it. The number of small decisions we make each day far outnumber the larger and more important ones.
 
-https://twitter.com/iamdidev/status/1253708481481375744
+<div class="Image__Small">
+  <Tweet tweetId="1253708481481375744" />
+</div>
 
 By removing those decisions from your day, you free up brain fuel for more things that we developers like most: producing elegant code, solving problems, and saving the day.
 
@@ -95,4 +97,4 @@ It’s really just a numbers game—only essential decisions should remain. Tool
 
 I've created a productivity framework for eliminating unproductive activities, reducing decision fatigue, and planning weeks for effortless execution.
 
-[Get the Productivity Framework here!](https://give.iamdi.dev/productivity-framework-for-programmers)
+**[Get the Productivity Framework here!](https://give.iamdi.dev/productivity-framework-for-programmers)**
