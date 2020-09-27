@@ -109,9 +109,9 @@ David Heinemeier Hansson, aka **DHH**, creator of Ruby on Rails, founder and CT
 
 David comments on each book in [his post](https://signalvnoise.com/posts/3375-the-five-programming-books-that-meant-most-to-me), and I recommend reading it.
 
-> NOTE: All book links abowe are lead to Amazon store that is closest to your country. As an Amazon Associate, I earn from qualifying purchases.
-> 
-> — iamdi (author)
+---
+
+_ All book links above are lead to Amazon store that is closest to your country. As an Amazon Associate, I earn from qualifying purchases. _
 
 ## Ready to Upgrade?
 

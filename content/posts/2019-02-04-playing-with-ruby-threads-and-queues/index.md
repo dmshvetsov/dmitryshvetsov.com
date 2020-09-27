@@ -224,4 +224,4 @@ Full example with some tweaks available in this [gist](https://gist.github.com/
 
 * * *
 
-_Many thanks to Andrey Novikov and Vlad Dementyev for helping me grasp the subject of Ruby Threads and Queues._
+_Many thanks to [Andrey Novikov](https://twitter.com/envek) and [Vladimir Dementyev](https://twitter.com/palkan_tula) for helping me grasp the subject of Ruby Threads and Queues._

@@ -76,4 +76,4 @@ The content of the book is deep and narrow as a result.
 
 I would recommend [POODR book](https://amzn.to/32MLnFU) (or [2nd edition](https://amzn.to/2YotkX8), although I have no luck to read it) by Sandi Metz as a complement material for “99 Bottles Of OOP”. I personally read the first edition of POODR twice and going to read the second edition, POODR is totally worth its money.
 
-\[convertkit form=1272468\]
+<!--\[convertkit form=1272468\]-->

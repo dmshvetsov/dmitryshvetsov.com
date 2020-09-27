@@ -59,7 +59,7 @@ _Looking for a remote position as a full-stack Ruby on Rails developer in a fin-
 
 [https://github.com/iamdidev](https://github.com/iamdidev)
 
-_![](https://lh5.googleusercontent.com/qtNyVC16lx8v9bZesbglXlYfoibHZhKaWl2pm6sCYau6lqzaxwQYiw6PJhKP52-KlwJOVWxIf5ZgNdSq-PoWyIpIeXjrbHZtY4qrITtYuZoO8AY7QjOyfoZ5DNxay3bp0mbrqWwj)_
+_ ![](https://lh5.googleusercontent.com/qtNyVC16lx8v9bZesbglXlYfoibHZhKaWl2pm6sCYau6lqzaxwQYiw6PJhKP52-KlwJOVWxIf5ZgNdSq-PoWyIpIeXjrbHZtY4qrITtYuZoO8AY7QjOyfoZ5DNxay3bp0mbrqWwj) _
 
 Make sure you pin the coolest repos that you’ve worked on and gists with parts of code that you’re proud of. The idea is to lead the person who visits your account to places you want them to see.
 
