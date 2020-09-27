@@ -1,10 +1,18 @@
 import * as React from 'react'
+import { Helmet } from 'react-helmet'
 import '../assets/tl101.css'
 import bookCover from '../assets/tl101-cover.png'
 
-const TeamLead101 = () => {
+const TeamLead101 = (): JSX.Element => {
   return (
     <div id="container">
+      <Helmet>
+        <title>Team Lead 101: How to Manage and Grow Engineering Teams in Small Startups</title>
+        <meta
+          name="description"
+          content="A book for software engineers who have been entrusted to lead their teams but haven’t received a guide on how to do this."
+        />
+      </Helmet>
       <div className="formkit-page" style={{ backgroundColor: "#ffffff" }}>
         <div
           className="formkit-background"
@@ -13,7 +21,7 @@ const TeamLead101 = () => {
             borderColor: "#45556a",
             borderWidth: "10px",
             backgroundImage: "",
-            opacity: 1
+            opacity: 1,
           }}
         />
         <div className="formkit-container">
@@ -51,7 +59,7 @@ const TeamLead101 = () => {
                     </em>
                   </p>
                 </div>
-                <div style={{ marginTop: '3em' }}>
+                <div style={{ marginTop: "3em" }}>
                   <a
                     className="gumroad-button"
                     href="https://gum.co/team-lead-101?wanted=true"
