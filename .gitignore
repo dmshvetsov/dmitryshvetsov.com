@@ -72,3 +72,6 @@ yarn-error.log
 
 # VSCode
 project.code-workspace
+
+# Firebase
+.firebase/
