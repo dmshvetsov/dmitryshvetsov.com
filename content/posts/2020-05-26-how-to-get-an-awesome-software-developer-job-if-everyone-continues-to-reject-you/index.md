@@ -65,9 +65,10 @@ Make sure you pin the coolest repos that you’ve worked on and gists with parts
 
 5\. Bonus: Put a link to your site/blog if it has relevant and interesting content.
 
-[https://iamdi.dev](https://iamdi.dev)
+[https://dmitryshvetsov.com](https://dmitryshvetsov.com)
 
 6\. Bonus: Include a photo if you have a good one. Avoid shots that look unprofessional (blurry, poor light). Smile genuinely in it. You can test your photo with [photofeeler.com](https://www.photofeeler.com/).
+
 7\. A list of skills relevant to the position your resume is aimed at.
 
 _Ruby, Ruby on Rails, Active Admin, Administrate, PostgreSQL, Redis, MongoDB, Rspec (TDD, BDD), Javascript ES5-ES7, React, Docker._
