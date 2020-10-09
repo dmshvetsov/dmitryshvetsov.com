@@ -107,6 +107,6 @@ After you humbly do what it takes to pursue private wins—“the turn”—then
 
 ## Call To Action
 
-If you resonated with this article, please [subscribe to my mailing list](https://give.iamdi.dev/tbpm-newsletter) to receive more content like this.
+If you resonated with this article, please [subscribe to my mailing list](https://gift.dmitryshvetsov.com/tbpm-newsletter) to receive more content like this.
 
 <!--\[convertkit form=1272468\]-->

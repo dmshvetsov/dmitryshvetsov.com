@@ -125,7 +125,7 @@ My workday looks like the movie _Groundhog Day_. I know when I wake up, what tim
 
 As a team lead, I have some days that are mostly for team meetings, 1-on-1 meetings, clarification of project requirements, and planning the next week. There are other days for deep work when I turn off Slack, disable all notifications, and set my phone to “Airplane Mode.” Every day I have time slots when I’m with the team, ready to jump into a conversation, help with a problem, or remove a roadblock, and also time slots when I code.
 
-[Here is a link to a framework that you can use to create your own weekly plan.](https://iamdi.dev/programmers-productivity-framework)
+[Here is a link to a framework that you can use to create your own weekly plan.](https://dmitryshvetsov.com/programmers-productivity-framework)
 
 With a planned routine, you spend less energy on smaller decisions and think about fewer things. This creates space to get into a special state—the flow state.
 
@@ -176,4 +176,4 @@ With positivity, elimination, and preparation, your productivity will soar, both
 
 I've created a productivity framework for eliminating unproductive activities, reducing decision fatigue, and planning weeks for effortless execution.
 
-[Get the Productivity Framework here!](https://give.iamdi.dev/productivity-framework-for-programmers)
+[Get the Productivity Framework here!](https://gift.dmitryshvetsov.com/productivity-framework-for-programmers)

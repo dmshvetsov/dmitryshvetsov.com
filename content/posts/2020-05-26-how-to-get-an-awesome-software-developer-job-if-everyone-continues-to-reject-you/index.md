@@ -273,4 +273,4 @@ It is absolutely not hard when you know what to do. Reread this article, determi
 
 With my job checklist, get the exact steps on how to escape a mediocre job, find an awesome company, apply for a job, and prepare for a successful interview.
 
-[**Click here to get the checklist right now!**](https://give.iamdi.dev/get-next-level-job-checklist)
+[**Click here to get the checklist right now!**](https://gift.dmitryshvetsov.com/get-next-level-job-checklist)

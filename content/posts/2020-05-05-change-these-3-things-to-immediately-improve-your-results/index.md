@@ -104,4 +104,4 @@ Dr. Oakley emphasizes that a simple understanding is not enough. Understanding i
 
 I've created a framework to help you eliminate unproductive activities, reduce decision fatigue, and plan your weeks for effortless execution. If you want to take your productivity to the next level, check out my **Productivity Framework**.
 
-[Get the Productivity Framework here!](https://give.iamdi.dev/productivity-framework-for-programmers)
+[Get the Productivity Framework here!](https://gift.dmitryshvetsov.com/productivity-framework-for-programmers)

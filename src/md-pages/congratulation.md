@@ -17,8 +17,8 @@ Here are some things that will help along your way:
 1. [Download my “Productivity Framework,”](https://attachments.convertkitcdnn2.com/196514/4e2e3867-3d61-4d52-b7f2-f826ecf81682/Productivity%20Framework.pdf) the one tool that helps me to get the very most out of my work weeks.
 2. [Download 10-step checklist](https://attachments.convertkitcdnn2.com/196514/219f32e5-1a7c-499e-bd6c-5b7eed3fc0a2/how-to-get-your-dream-job-software-developer-checklist-result.pdf) on how to find amazing companies and successfully apply for them.
 3. [Browse a collection of the most valuable YouTube videos for programmers](https://www.youtube.com/playlist?list=PLZ9y9yxqfSW-HUoh2r-WCWU8ewrBI_8nm).
-4. Check out essential books for programmers recommended by [Bozhidar Batsov, Uncle Bob, Kent Beck, Jeff Atwood, and DHH](https://iamdi.dev/essential-books-that-every-programmer-should-read/) and [Andy Hunt, Eric Freeman, and Cory Althof](https://iamdi.dev/essential-books-that-every-programmer-should-read-lists-by-andy-hunt-eric-freeman-cory-althoff/).
-5. [Check out a carefully selected list of books](https://iamdi.dev/books-for-successful-programmers/) that will help you on your road to attaining a successful programming career.
+4. Check out essential books for programmers recommended by [Bozhidar Batsov, Uncle Bob, Kent Beck, Jeff Atwood, and DHH](https://dmitryshvetsov.com/essential-books-that-every-programmer-should-read/) and [Andy Hunt, Eric Freeman, and Cory Althof](https://dmitryshvetsov.com/essential-books-that-every-programmer-should-read-lists-by-andy-hunt-eric-freeman-cory-althoff/).
+5. [Check out a carefully selected list of books](https://dmitryshvetsov.com/books-for-successful-programmers/) that will help you on your road to attaining a successful programming career.
 
 Talk to you soon!
 

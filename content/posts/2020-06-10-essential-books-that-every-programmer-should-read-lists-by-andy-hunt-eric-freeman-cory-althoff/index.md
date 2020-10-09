@@ -14,7 +14,7 @@ _ Photo by [Brooke Cagle](https://unsplash.com/@brookecagle?utm_source=unsplash&
 
 I’ve been asking experienced programmers, technical authors, computer science professors, and lecturers to recommend essential books for programmers. This is part 2 of the series, with book recommendations from Andy Hunt, Eric Freeman, and Cory Althof.
 
-For book recommendations from Kent Beck, Uncle Bob Martin, David Heinemeier Hanson, Jeff Atwood, and Bozhidar Batsov, read [the first part of the series](https://iamdi.dev/essential-books-that-every-programmer-should-read/).
+For book recommendations from Kent Beck, Uncle Bob Martin, David Heinemeier Hanson, Jeff Atwood, and Bozhidar Batsov, read [the first part of the series](https://dmitryshvetsov.com/essential-books-that-every-programmer-should-read/).
 
 ---
 

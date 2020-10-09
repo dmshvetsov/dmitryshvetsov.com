@@ -136,4 +136,4 @@ Give your brain what it needs to get better results:
 
 I've created a productivity framework for eliminating unproductive activities, reducing decision fatigue, and planning weeks for effortless execution.
 
-[Get the Productivity Framework here!](https://give.iamdi.dev/productivity-framework-for-programmers)
+[Get the Productivity Framework here!](https://gift.dmitryshvetsov.com/productivity-framework-for-programmers)

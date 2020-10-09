@@ -17,8 +17,8 @@ Follow me on [Twitter.](https://twitter.com/iamdidev)
 Here is a collection of useful resources for you:
 
 1. [Browse a collection of the most valuable YouTube videos for programmers](https://www.youtube.com/playlist?list=PLZ9y9yxqfSW-HUoh2r-WCWU8ewrBI_8nm).
-2. [Check out book recommendations by Bozhidar Batsov, Uncle Bob, Kent Beck, Jeff Atwood, and DHH](https://iamdi.dev/essential-books-that-every-programmer-should-read/).
-3. [Check out a carefully selected list of books that will help you on your road to attaining a successful programming career](https://iamdi.dev/books-for-successful-programmers/).
+2. [Check out book recommendations by Bozhidar Batsov, Uncle Bob, Kent Beck, Jeff Atwood, and DHH](https://dmitryshvetsov.com/essential-books-that-every-programmer-should-read/).
+3. [Check out a carefully selected list of books that will help you on your road to attaining a successful programming career](https://dmitryshvetsov.com/books-for-successful-programmers/).
 
 Talk to you soon!
 

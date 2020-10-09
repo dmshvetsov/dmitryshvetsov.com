@@ -124,4 +124,4 @@ Then repeat this process! A great morning leads to a great day, a great day lead
 
 I’ve created a productivity framework for eliminating unproductive activities, reducing decision fatigue, and planning weeks for effortless execution.
 
-[Get the Productivity Framework here!](https://give.iamdi.dev/productivity-framework-for-programmers)
+[Get the Productivity Framework here!](https://gift.dmitryshvetsov.com/productivity-framework-for-programmers)
