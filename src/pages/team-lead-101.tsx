@@ -3,6 +3,17 @@ import { Helmet } from 'react-helmet'
 import '../assets/tl101.css'
 import bookCover from '../assets/tl101-cover.png'
 
+const BuyButton = ({ style }: { style: Record<string, string>}): JSX.Element => (
+  <div style={style}>
+    <a
+      className="gumroad-button"
+      href="https://gum.co/team-lead-101?wanted=true"
+    >
+      Buy 'Team Lead 101' eBook for $28
+    </a>
+  </div>
+);
+
 const TeamLead101 = (): JSX.Element => {
   return (
     <div id="container">
@@ -59,14 +70,9 @@ const TeamLead101 = (): JSX.Element => {
                     </em>
                   </p>
                 </div>
-                <div style={{ marginTop: "3em" }}>
-                  <a
-                    className="gumroad-button"
-                    href="https://gum.co/team-lead-101?wanted=true"
-                  >
-                    Buy 'Team Lead 100'
-                  </a>
-                </div>
+                <p>107 pages of fundamental principles, tools, and approaches to team leadership and project management</p>
+                <BuyButton style={{ marginTop: '3em', marginBottom: '1.5em' }}/>
+                <p><i>You will get PDF and ePub file.</i></p>
               </div>
             </div>
           </div>
@@ -253,6 +259,7 @@ const TeamLead101 = (): JSX.Element => {
                   </blockquote>
                 </div>
               </div>
+              <BuyButton style={{ margin: '3em 0' }}/>
               <h2
                 className="formkit-content-header"
                 style={{ fontSize: "30px", fontWeight: 400 }}
@@ -378,85 +385,7 @@ const TeamLead101 = (): JSX.Element => {
                   </p>
                 </div>
               </div>
-              {/*<div
-                className="formkit-form-header"
-                style={{ color: "#000", fontSize: "21px", fontWeight: 700 }}
-              >
-                Subscribe below to receive a free sample chapter
-              </div>
-              <div className="formkit-form-subheader">
-                <div
-                  className="formkit-text "
-                  style={{ color: "#333", fontSize: "18px" }}
-                  id="892524"
-                >
-                  <p>
-                    You&apos;ll also receive free photography tips each week and be the
-                    first to hear when Mission Photography is available for
-                    purchase. Subscribe to start learning today.{" "}
-                  </p>
-                </div>
-              </div>
-              <ul
-                className="formkit-alert formkit-alert-error"
-                data-element="errors"
-                data-group="alert"
-              />
-              <div
-                className="formkit-fields"
-                data-stacked="false"
-              >
-                <div className="formkit-field">
-                  <input
-                    type="text"
-                    className="formkit-input"
-                    aria-label="Your first name"
-                    style={{
-                      color: "#000",
-                      borderColor: "#b0b0b0",
-                      borderRadius: "3px",
-                      fontWeight: 400,
-                    }}
-                    name="fields[first_name]"
-                    placeholder="Your first name"
-                  />
-                </div>
-                <div className="formkit-field">
-                  <input
-                    type="text"
-                    className="formkit-input"
-                    name="email_address"
-                    style={{
-                      color: "#000",
-                      borderColor: "#b0b0b0",
-                      borderRadius: "3px",
-                      fontWeight: 400,
-                    }}
-                    placeholder="Your email address"
-                    required
-                  />
-                </div>
-                <button
-                  className="formkit-submit"
-                  style={{
-                    color: "#ffffff",
-                    backgroundColor: "#45556a",
-                    borderRadius: "3px",
-                    fontWeight: 700,
-                  }}
-                  data-element="submit"
-                >
-                  <div className="formkit-spinner">
-                  </div>
-                  <span>Download the sample chapter</span>
-                </button>
-              </div>
-              <div
-                className="formkit-disclaimer"
-                style={{ color: "#888888", fontSize: "12px" }}
-              >
-                We respect your privacy. Unsubscribe at anytime.
-              </div> */}
+              <BuyButton style={{ margin: '3em 0' }} />
             </div>
           </div>
         </div>
