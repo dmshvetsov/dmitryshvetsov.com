@@ -21,9 +21,11 @@
     "gatsby-plugin-firebase": "^0.2.0-beta.4",
     "gatsby-plugin-manifest": "^2.2.4",
     "gatsby-plugin-netlify-cms": "^4.1.40",
+    "gatsby-plugin-sass": "^2.3.16",
     "gatsby-plugin-sitemap": "^2.4.13",
     "netlify-cms-app": "^2.11.23",
     "netlify-cms-proxy-server": "^1.1.4",
+    "node-sass": "^4.14.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "typescript": "^4.0.3"

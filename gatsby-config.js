@@ -81,6 +81,7 @@ module.exports = {
       options: {
         exclude: ['congratulations', 'download-your-productivity-framework']
       }
-    }
+    },
+    'gatsby-plugin-sass'
   ]
 }
