@@ -88,8 +88,8 @@ const AtomicTeamLead101 = (): JSX.Element => {
       <section className={style.contentSection}>
         <h2 className={style.subHeadline}>100% Guaranteed</h2>
         <p>
-          If Team Lead 101: How to Manage and Grow Engineering Teams in Small
-          Startups doesn't show me exactly how to lead people and
+          If this eBook (Team Lead 101)
+          doesn't show me exactly how to lead people and
           manage projects ... if it doesn't take me
           by the hand, step-by-step to build a strong, close-knit team... or if
           it fails to help me become a leader in tech startup, then I understand
@@ -104,7 +104,7 @@ const AtomicTeamLead101 = (): JSX.Element => {
         </a>
         <div>
           <p>To Your Success, </p>
-          <p>Dmitry Shvetsov author of Team Lead 101</p>
+          <p><b>Dmitry Shvetsov author of Team Lead 101</b></p>
         </div>
       </section>
       <section className={style.contentSection}>
@@ -156,6 +156,8 @@ const AtomicTeamLead101 = (): JSX.Element => {
           Click Here to Become a Better Team Lead
         </a>
       </section>
+      <hr/>
+      <footer className={style.contentSection}><small>Dmitry Shvetsov (Sole proprietorship) – All Rights Reserved © 2020 | Zeiskaya, 4/2, 690005, Vladivostok, Russia </small></footer>
     </div>
   );
 }

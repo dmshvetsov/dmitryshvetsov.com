@@ -1,7 +1,7 @@
 .content-container
   font-family: Lato, Helvetica, Arial, sans-serif
   font-size: 18px
-  padding: 2em
+  padding: 2em 2em 8em 2em
   color: #323232
   max-width: 1248px
   margin: 0 auto
@@ -93,3 +93,38 @@
     display: block
     font-style: normal
     font-weight: bold
+
+@media (min-width: 768px)
+  // nothing
+@media (min-width: 600px)
+  // nothing
+@media only screen and (max-width: 500px)
+  .content-container
+    font-size: 18px
+    padding-left: 1em
+    padding-right: 1em
+
+  .headline
+    font-size: 2em
+
+  .header-container
+    flex-flow: row wrap
+    max-width: 500px
+
+  .book-cover
+    &-container
+      padding: 1.5em
+      flex-basis: 100%
+      width: 100%
+      align-self: left
+
+  .book-pitch
+    &-container
+      padding: 0
+      flex-basis: 100%
+      width: 100%
+      align-self: left
+
+  .bullet-list
+    padding-left: 1em
+    padding-right: 1em
