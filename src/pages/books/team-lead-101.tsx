@@ -147,7 +147,7 @@ const AtomicTeamLead101 = (): JSX.Element => {
           </cite>
         </blockquote>
       </section>
-      <section>
+      <section className={style.contentSection}>
         <a
           type="button"
           href="https://gum.co/team-lead-101?wanted=true"
