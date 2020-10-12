@@ -6,7 +6,7 @@ date: "2020-07-25"
 hero: images/hero.jpg
 ---
 
-This is a chapter from an upcoming book **Team Lead 101: Manage and Grow Engineering Teams in Small Startups**. [Pre-order the book for half of the price here.](https://gum.co/team-lead-101)
+This is a chapter **Team Lead 101: Manage and Grow Engineering Teams in Small Startups** book. [Click here to learn more](https://dmitryshvetsov.com/books/team-lead-101)
 
 _ Photo by <a href="https://unsplash.com/@wocintechchat?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Christina @ wocintechchat.com</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a> _
 
@@ -70,6 +70,6 @@ With 1:1 meetings, I have solved personal and team issues discovered ways to imp
 
 * * *
 
-[![Team Lead 101 book cover](images/2-1.png)](https://gumroad.com/l/team-lead-101)
+<!-- [![Team Lead 101 book cover](images/2-1.png)](https://gumroad.com/l/team-lead-101) -->
 
-This is a chapter from an upcoming book **Team Lead 101: Manage and Grow Engineering Teams in Small Startups**. [Pre-order the book for half of the price here.](https://gum.co/team-lead-101)
+This is a chapter **Team Lead 101: Manage and Grow Engineering Teams in Small Startups** book. **[Click here to learn more](https://dmitryshvetsov.com/books/team-lead-101)**

@@ -6,7 +6,7 @@ date: "2020-07-25"
 hero: images/hero.jpg
 ---
 
-This is a chapter from the ebook **Team Lead 101: Manage and Grow Engineering Teams in Small Startups**. [Get your copy here.](https://gum.co/team-lead-101)
+This is a chapter from **Team Lead 101: Manage and Grow Engineering Teams in Small Startups** ebook. [Get your copy here.](https://dmitryshvetsov.com/books/team-lead-101)
 
 _ Photo by <a href="https://unsplash.com/@marg_cs?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Margarida CSilva</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a> _ 
 
@@ -34,6 +34,6 @@ Make a requirement for everyone to be at the code review meeting. If it’s opti
 
 * * *
 
-[![Team Lead 101 book cover](images/2-1.png)](https://gumroad.com/l/team-lead-101)
+This is a chapter from **Team Lead 101: Manage and Grow Engineering Teams in Small Startups** ebook. [Get your copy here.](https://dmitryshvetsov.com/books/team-lead-101)
 
-This is a chapter from the ebook **Team Lead 101: Manage and Grow Engineering Teams in Small Startups**. [Get your copy here.](https://gum.co/team-lead-101)
+<!-- [![Team Lead 101 book banner](./tl101-banner.png)](https://dmitryshvetsov.com/books/team-lead-101){ linkImagesToOriginal=false } -->
