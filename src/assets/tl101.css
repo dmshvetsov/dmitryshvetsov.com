@@ -1608,6 +1608,10 @@ select.formkit-select {
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
+  display: block;
+  text-align: center;
+  width: 100%;
+  max-width: 300px;
 }
 
 .formkit-page .gumroad-button:hover {
