@@ -19,6 +19,7 @@ $space-vertical: 1em
   align-self: center
   margin-left: $space-horizontal
   margin-right: $space-horizontal
+  margin-bottom: calc(#{$space-vertical} * 2)
 
 .cta-section
   text-align: center
@@ -34,7 +35,6 @@ $space-vertical: 1em
   font-weight: bold
   text-align: center
   line-height: 1.33em
-  margin-bottom: $space-vertical
 
 .header-container
   margin-left: $space-horizontal
@@ -74,12 +74,11 @@ $space-vertical: 1em
   margin-bottom: 0.5em
 
 .bullet-list
-  font-size: 1.2em
   list-style-type: square
-  padding-left: 3em
-  padding-right: 3em
+  padding-left: 2em
+  padding-right: 2em
   li
-    margin-bottom: .5em
+    margin-bottom: $space-vertical
 
 .sub-headline
   font-size: 1.6em
@@ -115,7 +114,7 @@ $space-vertical: 1em
 
 .footer
   margin-top: 5em
-  font-size: .75em
+  font-size: .5em
   color: #666
 
 @media (min-width: 768px)

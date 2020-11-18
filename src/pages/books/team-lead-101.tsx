@@ -6,12 +6,12 @@ import style from '../tl101-css-modules.module.sass'
 import bookCover from '../../assets/tl101-cover.png'
 
 const TITLES = [
-  "How To Build A Strong, Close-knit Team... Even If You Did Not Consider Yourself A Leader Before!",
-  "X Secrets To Build Team That Get Thing Done...",
-  "Everyone has a leader inside of them...",
-  "You are team lead now, but why do you feel so bad?",
-  "Why some engineers can't find a way to become a team lead and other who become a team lead overworked and drive crazy",
-  "An simple and proven way to become better at managing engineers and ?? smt to avoid"
+  // "An simple and proven way to become better at managing engineers and ?? smt to avoid",
+  "35 Proven Secrets on How To Build A Strong, Close-knit Team",
+  "35 Secrets To Build Team That getting Thing Done...",
+  "Everyone Has a Leader Inside Of Them...",
+  "You are Team Lead Now, But Why Do You Feel So Bad?",
+  "Why are Some Engineers unable Find a Way To Become a Team Lead and Others Who Become a Team Lead are Overworked and Drive Crazy"
 ]
 
 const classes = classLister(style)
