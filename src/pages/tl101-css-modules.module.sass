@@ -1,7 +1,13 @@
+$color-base: #fff
+$color-card: #f9f9f9
+$space-horizontal: 2em
+$space-vertical: 1em
+
 .content-container
+  background-color: $color-base
   font-family: Lato, Helvetica, Arial, sans-serif
-  font-size: 18px
-  padding: 2em 2em 8em 2em
+  font-size: 23px
+  padding: 2em 0em 2em 0em
   color: #323232
   max-width: 1248px
   margin: 0 auto
@@ -11,17 +17,30 @@
 .content-section
   max-width: 800px
   align-self: center
+  margin-left: $space-horizontal
+  margin-right: $space-horizontal
+
+.cta-section
+  text-align: center
+  background-color: $color-card
+  width: 100%
+  max-width: 100%
+  padding-left: 0
+  padding-right: 0
+  padding-bottom: 1.5em
 
 .headline
-  font-size: 3em
+  font-size: 2.2em
   font-weight: bold
   text-align: center
   line-height: 1.33em
-  &-text-wrap
-    background-color: gold
-
+  margin-bottom: $space-vertical
 
 .header-container
+  margin-left: $space-horizontal
+  margin-right: $space-horizontal
+  margin-bottom: $space-vertical
+  background-color: $color-base
   justify-content: center
   display: flex
   flex-flow: row nowrap
@@ -29,7 +48,6 @@
 
 .book-cover
   width: 100%
-
   &-container
     padding: 2em
     flex-basis: 35%
@@ -42,15 +60,18 @@
     align-self: center
 
 .book-title
-  font-size: 2.5em
-  // font-size: 5vw
+  font-size: 1.25em
   font-weight: 900
 
-.book-sub-title
-  display: block
-  font-size: .6em
-  font-weight: 400
-  color: #4c4c4c
+.book-featured-review
+  background-color: $color-card
+  margin: 0 -1em
+  padding: 1em
+  font-size: 0.8em
+
+.book-review-rating
+  color: gold
+  margin-bottom: 0.5em
 
 .bullet-list
   font-size: 1.2em
@@ -61,10 +82,8 @@
     margin-bottom: .5em
 
 .sub-headline
-  display: inline-block
-  font-size: 2em
+  font-size: 1.6em
   font-weight: 900
-  background-color: #fff9b8
   padding: .1em .25em
   margin-left: -0.25em
   margin-right: -0.25em
@@ -93,6 +112,11 @@
     display: block
     font-style: normal
     font-weight: bold
+
+.footer
+  margin-top: 5em
+  font-size: .75em
+  color: #666
 
 @media (min-width: 768px)
   // nothing

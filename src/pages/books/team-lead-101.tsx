@@ -1,27 +1,51 @@
 import * as React from 'react'
 import { Helmet } from 'react-helmet'
+import sample from 'lodash/sample'
+import classLister from '../../helpers/classes';
 import style from '../tl101-css-modules.module.sass'
 import bookCover from '../../assets/tl101-cover.png'
 
+const TITLES = [
+  "How To Build A Strong, Close-knit Team... Even If You Did Not Consider Yourself A Leader Before!",
+  "X Secrets To Build Team That Get Thing Done...",
+  "Everyone has a leader inside of them...",
+  "You are team lead now, but why do you feel so bad?",
+  "Why some engineers can't find a way to become a team lead and other who become a team lead overworked and drive crazy",
+  "An simple and proven way to become better at managing engineers and ?? smt to avoid"
+]
+
+const classes = classLister(style)
+
+const GumroadBuyButton = (): JSX.Element => {
+  return (
+    <a
+      type="button"
+      href="https://gum.co/team-lead-101"
+      className={style.buyButton}
+    >
+      Click Here to Buy Now on Gumroad
+    </a>
+  );
+}
+
+/**
+ * Team Lead 101 landing, version A2.0
+ * `A` stands for "Atomic [Habits]", this landing design is based on Atomic
+ * Habits book langing https://jamesclear.com/atomic-habits
+ *
+ */
 const AtomicTeamLead101 = (): JSX.Element => {
+  const randomTitle = sample(TITLES);
   return (
     <div className={style.contentContainer}>
       <Helmet>
-        <title>
-          Team Lead 101: How to Manage and Grow Engineering Teams in Small
-          Startups (A)
-        </title>
+        <title>Team Lead 101 | {randomTitle} A2</title>
         <meta
           name="description"
           content="A book for software engineers who have been entrusted to lead their teams but haven’t received a guide on how to do this."
         />
       </Helmet>
-      <header className={style.headline}>
-        <span className={style.headlineTextWrap}>
-          "How To Build A Strong, Close-knit Team... Even If You Did Not Consider
-        Yourself A Leader Before!"
-        </span>
-      </header>
+      <header className={style.headline}>{randomTitle}</header>
       <div className={style.headerContainer}>
         <div className={style.bookCoverContainer}>
           <img
@@ -32,25 +56,34 @@ const AtomicTeamLead101 = (): JSX.Element => {
         </div>
         <div className={style.bookPitchContainer}>
           <h1 className={style.bookTitle}>
-            Team Lead 101{" "}
-            <span className={style.bookSubTitle}>
-              How to Manage and Grow Engineering Teams in Small Startups
-            </span>
+            Team Lead 101:{" "}
+            How to Manage and Grow Engineering Teams in Small Startups
           </h1>
-          <p><i>eBook (PDF, ePUB)</i></p>
+          <p>
+            A book for software engineers who have been entrusted to lead their
+            teams but haven’t received a guide on how to do this.
+          </p>
+
+          <div className={classes('bookFeaturedReview')}>
+            <div className={classes('bookReviewRating')}>★ ★ ★ ★ ★</div>
+            <strong><i>"An excellent resource for all budding team leads... I got a whole heap of tips to bring into my new gig."</i></strong>
+            <br/>
+            <br/>
+            – Daragh Byrne, Software Engineering Manager at Digital Creators
+          </div>
         </div>
       </div>
+      <section className={classes('contentSection', 'ctaSection')}>
+        <h2 className={style.subHeadline}>
+          Get Your Copy of `Team Lead 101`
+        </h2>
+        <GumroadBuyButton />
+      </section>
       <section className={style.contentSection}>
         <h2 className={style.subHeadline}>
-          Yes! I'm ready to understand that leading people and managing projects
-          are easier than I thought. I'm ready to build a strong, close-knit
-          team, and become a leader in a tech startup!
+          107 pages of fundamental principles, tools and approaches to team leadership and project management
         </h2>
-        <p>
-          I Understand That When I Act Now, I get instant access to the eBook (ePUB and PDF formats)
-          "Team Lead 101: How to Manage and Grow Engineering Teams
-          in Small Startups", which includes:
-        </p>
+        5 Things This Book Will Teach You:
         <ul className={style.bulletList}>
           <li>
             Finally, understand <b>what distinguishes a good team lead from a bad one</b>{" "}
@@ -88,30 +121,17 @@ const AtomicTeamLead101 = (): JSX.Element => {
       <section className={style.contentSection}>
         <h2 className={style.subHeadline}>100% Guaranteed</h2>
         <p>
-          If this eBook (Team Lead 101)
-          doesn't show me exactly how to lead people and
-          manage projects ... if it doesn't take me
-          by the hand, step-by-step to build a strong, close-knit team... or if
-          it fails to help me become a leader in tech startup, then I understand
-          that I will receive a full refund, No Questions Asked!
+          I 100% guarantee that you'll love this book, or I'll return your money and let you keep the book anyway.
         </p>
-        <a
-          type="button"
-          href="https://gum.co/team-lead-101?wanted=true"
-          className={style.buyButton}
-        >
-          Click Here to Become a Better Team Lead
-        </a>
-        <div>
-          <p>To Your Success, </p>
-          <p><b>Dmitry Shvetsov author of Team Lead 101</b></p>
-        </div>
+        <p>
+          Just reply to the download email within 30 days from the purchase and you’ll give you back your moneu with no questions asked.
+        </p>
       </section>
       <section className={style.contentSection}>
         <h2 className={style.subHeadline}>
           But don't just take my word for it... take a look at these
-          testimonials and reviews from happy software developers, tech leads, and team leads
-          just like you!
+          testimonials and reviews from happy software developers, tech and team
+          leads just like you!
         </h2>
         <blockquote className={style.blockquote}>
           "I have read only half of the book and already realized how sad it is
@@ -148,16 +168,10 @@ const AtomicTeamLead101 = (): JSX.Element => {
         </blockquote>
       </section>
       <section className={style.contentSection}>
-        <a
-          type="button"
-          href="https://gum.co/team-lead-101?wanted=true"
-          className={style.buyButton}
-        >
-          Click Here to Become a Better Team Lead
-        </a>
+        <GumroadBuyButton />
       </section>
       <hr/>
-      <footer className={style.contentSection}><small>Dmitry Shvetsov (Sole proprietorship) – All Rights Reserved © 2020 | Zeiskaya, 4/2, 690005, Vladivostok, Russia </small></footer>
+      <footer className={classes('contentSection', 'footer')}>Dmitry Shvetsov (Sole proprietorship) – All Rights Reserved © 2020 | Zeiskaya, 4/2, 690005, Vladivostok, Russia </footer>
     </div>
   );
 }
