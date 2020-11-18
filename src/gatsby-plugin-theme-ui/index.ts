@@ -28,7 +28,13 @@ const tags = {
   }
 }
 
+const colors = {
+  ...novelaTheme.colors,
+  background: '#fff'
+}
+
 export default {
   ...novelaTheme,
-  tags
+  tags,
+  colors
 }
