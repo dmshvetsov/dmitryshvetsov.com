@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "start": "gatsby develop",
     "dev": "gatsby develop",
     "clean": "gatsby clean",
     "proxy": "netlify-cms-proxy-server",
