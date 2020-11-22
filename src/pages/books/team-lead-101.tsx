@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Helmet } from 'react-helmet'
+import { useLocalStorage } from '@rehooks/local-storage'
 import sample from 'lodash/sample'
 import classLister from '../../helpers/classes'
 import style from '../tl101-css-modules.module.sass'
@@ -54,7 +55,7 @@ const GumroadBuyButton = ({
  *
  */
 const AtomicTeamLead101 = (): JSX.Element => {
-  const randomTitle = sample(TITLES)
+  const [randomTitle] = useLocalStorage<string>('randomTitle', sample(TITLES))
   const experiment = {
     page_header: randomTitle
   }
