@@ -11,7 +11,7 @@ const TITLES = [
   "35 Secrets To Build Team That getting Thing Done...",
   "Everyone Has a Leader Inside Of Them...",
   "You are Team Lead Now, But Why Do You Feel So Bad?",
-  "Why are Some Engineers unable Find a Way To Become a Team Lead and Others Who Become a Team Lead are Overworked and Drive Crazy"
+  "Why are Some Engineers Unable Find a Way To Become a Team Lead and Others Who Become a Team Lead are Overworked and Drive Crazy"
 ]
 
 const classes = classLister(style)
@@ -86,35 +86,34 @@ const AtomicTeamLead101 = (): JSX.Element => {
         5 Things This Book Will Teach You:
         <ul className={style.bulletList}>
           <li>
-            Finally, understand <b>what distinguishes a good team lead from a bad one</b>{" "}
+            Understand <b>what distinguishes a good team lead from a bad one</b>{" "}
             so you're able to <b>avoid repeating the same mistakes </b> almost
-            every aspiring team leader making (including me 9 years ago) so you
-            can <b>become a good team lead faster</b>
+            every aspiring team leader making (including me 9 years ago).
           </li>
           <li>
             Learn the{" "}
             <b>tools which helps you save more time and get better results</b>{" "}
             while solving the most common team management tasks ... you can
-            benefit from the best practices of results-oriented team leaders
+            benefit from the best practices of results-oriented team leaders.
           </li>
           <li>
-            Learn the fundamental principles of leadership which lets you{" "}
+            Learn the fundamental principles of leadership which let you{" "}
             <b>take the actions that are right</b> for the team and its members
-            so you can you <b>discover your own personal pathway</b> to becoming
-            a person teammates Want To Follow
+            so you can discover your own personal pathway to <b>becoming
+            a person teammates want to follow</b>.
           </li>
           <li>
             Find out <b>what can prevent your team from achieving its goals</b>{" "}
-            so you're able to use your team exact strengths and know areas for
+            so you're able to use your team's exact strengths and know areas for
             improvement which means you can{" "}
-            <b>realize your team unique potential</b> and surpass the goals
-            faster
+            <b>realize your team's unique potential</b> and surpass the goals
+            faster.
           </li>
           <li>
             Learn frameworks and practices for{" "}
             <b>increasing your personal and team productivity</b> and how you
             can <b>overcome unproductive day to day busy-ness</b> which means
-            you can find more <b>time to do the really important things</b>
+            you can find more <b>time to do the really important things</b>.
           </li>
         </ul>
       </section>
@@ -124,7 +123,7 @@ const AtomicTeamLead101 = (): JSX.Element => {
           I 100% guarantee that you'll love this book, or I'll return your money and let you keep the book anyway.
         </p>
         <p>
-          Just reply to the download email within 30 days from the purchase and you’ll give you back your moneu with no questions asked.
+          Just reply to the download email within 30 days from the purchase and I’ll give you back your money with no questions asked.
         </p>
       </section>
       <section className={style.contentSection}>
