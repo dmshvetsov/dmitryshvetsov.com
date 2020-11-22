@@ -1,9 +1,16 @@
 import * as React from 'react'
 import { Helmet } from 'react-helmet'
 import sample from 'lodash/sample'
-import classLister from '../../helpers/classes';
+import classLister from '../../helpers/classes'
 import style from '../tl101-css-modules.module.sass'
 import bookCover from '../../assets/tl101-cover.png'
+import firebase from 'gatsby-plugin-firebase'
+
+const GUMROAD_PRODUCT_LINK = "https://gum.co/team-lead-101"
+const GUMROAD_BUY_LINK = `${GUMROAD_PRODUCT_LINK}?wanted=true`
+const EVENT = Object.freeze({
+  BUY_CLICK: 'buy_click'
+})
 
 const TITLES = [
   // "An simple and proven way to become better at managing engineers and ?? smt to avoid",
@@ -16,15 +23,27 @@ const TITLES = [
 
 const classes = classLister(style)
 
-const GumroadBuyButton = (): JSX.Element => {
+const GumroadBuyButton = ({
+  buttonId,
+  context = {}
+}: {
+  buttonId: string,
+  context: Record<string, unknown>
+}): JSX.Element => {
   return (
-    <a
+    <button
       type="button"
-      href="https://gum.co/team-lead-101"
       className={style.buyButton}
+      onClick={() => {
+        firebase.analytics().logEvent(EVENT.BUY_CLICK, {
+          ...context,
+          button_id: buttonId
+        })
+        window.location.href = GUMROAD_BUY_LINK
+      }}
     >
       Click Here to Buy Now on Gumroad
-    </a>
+    </button>
   );
 }
 
@@ -35,7 +54,11 @@ const GumroadBuyButton = (): JSX.Element => {
  *
  */
 const AtomicTeamLead101 = (): JSX.Element => {
-  const randomTitle = sample(TITLES);
+  const randomTitle = sample(TITLES)
+  const experiment = {
+    page_header: randomTitle
+  }
+
   return (
     <div className={style.contentContainer}>
       <Helmet>
@@ -75,9 +98,9 @@ const AtomicTeamLead101 = (): JSX.Element => {
       </div>
       <section className={classes('contentSection', 'ctaSection')}>
         <h2 className={style.subHeadline}>
-          Get Your Copy of `Team Lead 101`
+          Get Your Copy of `Team Lead 101`...
         </h2>
-        <GumroadBuyButton />
+        <GumroadBuyButton buttonId="immediate-button" context={experiment} />
       </section>
       <section className={style.contentSection}>
         <h2 className={style.subHeadline}>
@@ -167,7 +190,10 @@ const AtomicTeamLead101 = (): JSX.Element => {
         </blockquote>
       </section>
       <section className={style.contentSection}>
-        <GumroadBuyButton />
+        <GumroadBuyButton
+          buttonId="after-testimonials-button"
+          context={experiment}
+        />
       </section>
       <hr/>
       <footer className={classes('contentSection', 'footer')}>Dmitry Shvetsov (Sole proprietorship) – All Rights Reserved © 2020 | Zeiskaya, 4/2, 690005, Vladivostok, Russia </footer>
