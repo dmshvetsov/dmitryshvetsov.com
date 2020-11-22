@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 import sample from 'lodash/sample'
 import classLister from '../../helpers/classes'
 import style from '../tl101-css-modules.module.sass'
-import bookCover from '../../assets/tl101-cover.png'
+import bookCover from '../../assets/tl101-ereader-cover.png'
 import firebase from 'gatsby-plugin-firebase'
 
 const GUMROAD_PRODUCT_LINK = "https://gum.co/team-lead-101"

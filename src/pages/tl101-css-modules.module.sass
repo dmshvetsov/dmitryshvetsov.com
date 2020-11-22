@@ -1,5 +1,6 @@
 $color-base: #fff
 $color-card: #f9f9f9
+$color-accent: #f8cd5f
 $space-horizontal: 2em
 $space-vertical: 1em
 
@@ -70,7 +71,7 @@ $space-vertical: 1em
   font-size: 0.8em
 
 .book-review-rating
-  color: gold
+  color: $color-accent
   margin-bottom: 0.5em
 
 .bullet-list
@@ -90,22 +91,23 @@ $space-vertical: 1em
 .buy-button
   text-decoration: none
   display: inline-block
-  background-color: transparent
-  border: 2px solid #cfab02
-  color: #cfab02
+  background-color: $color-accent
+  border: none
   font-weight: 800
   font-size: 1em
   padding: 14px 20px
   margin-top: 1em
   margin-bottom: 1em
   cursor: pointer
+  transition: all .3s;
   &:hover
-    background-color: #cfab02
-    color: #fff
-    transition: all .2s ease-in-out
+    background-color: #fcdd8e
+    transform: translateY(-3px);
+    box-shadow: 0px 4px 15px rgba(50,1,1,.15)
 
 .blockquote
   font-style: italic !important
+  margin-bottom: 2em
   cite
     margin-top: .5em
     display: block
@@ -114,7 +116,7 @@ $space-vertical: 1em
 
 .footer
   margin-top: 5em
-  font-size: .5em
+  font-size: .6em
   color: #666
 
 @media (min-width: 768px)
