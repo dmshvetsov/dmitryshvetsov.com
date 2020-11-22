@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { Helmet } from 'react-helmet'
-import { useLocalStorage } from '@rehooks/local-storage'
+import { useLocalStorage } from '../../hooks'
 import sample from 'lodash/sample'
 import classLister from '../../helpers/classes'
 import style from '../tl101-css-modules.module.sass'
 import bookCover from '../../assets/tl101-ereader-cover.png'
-import firebase from 'gatsby-plugin-firebase'
 
+const IS_BROWSER = typeof window !== 'undefined'
 const GUMROAD_PRODUCT_LINK = "https://gum.co/team-lead-101"
 const GUMROAD_BUY_LINK = `${GUMROAD_PRODUCT_LINK}?wanted=true`
 const EVENT = Object.freeze({
@@ -36,11 +36,16 @@ const GumroadBuyButton = ({
       type="button"
       className={style.buyButton}
       onClick={() => {
-        firebase.analytics().logEvent(EVENT.BUY_CLICK, {
-          ...context,
-          button_id: buttonId
-        })
-        window.location.href = GUMROAD_BUY_LINK
+        if (IS_BROWSER) {
+          import('gatsby-plugin-firebase').then((mod) => {
+            const { default: firebase } = mod
+            firebase.analytics().logEvent(EVENT.BUY_CLICK, {
+              ...context,
+              button_id: buttonId
+            })
+            window.location.href = GUMROAD_BUY_LINK
+          })
+        }
       }}
     >
       Click Here to Buy Now on Gumroad
