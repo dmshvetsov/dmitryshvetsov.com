@@ -1,8 +1,11 @@
 name: Publish on Firebase
 
+# Deploy when new tags (versions) is pushed to the repo
+# with `npm version {major|minor|patch}` command
 on:
-  release:
-    types: [released]
+  push:
+    tags:
+    - '*'
 
 jobs:
   build:
