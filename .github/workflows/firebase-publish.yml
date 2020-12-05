@@ -1,8 +1,8 @@
 name: Publish on Firebase
 
 on:
-  push:
-    branches: [ master ]
+  release:
+    types: [published]
 
 jobs:
   build:
@@ -12,7 +12,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@master
       - name: Install Dependencies
-        run: npm install
+        run: npm install --only=prod
       - name: Build
         run: npm run build
         env:
@@ -33,7 +33,6 @@ jobs:
         uses: actions/download-artifact@master
         with:
           name: public
-          path: public
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
