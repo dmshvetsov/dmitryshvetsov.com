@@ -15,6 +15,7 @@ const EVENT = Object.freeze({
 
 const TITLES = [
   // "An simple and proven way to become better at managing engineers and ?? smt to avoid",
+  // "I'm a Team Lead. What Now?",
   "35 Proven Secrets on How To Build A Strong, Close-knit Team",
   "35 Secrets To Build Team That getting Thing Done...",
   "Everyone Has a Leader Inside Of Them...",
