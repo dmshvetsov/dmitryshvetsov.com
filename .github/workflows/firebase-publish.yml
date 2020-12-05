@@ -20,6 +20,7 @@ jobs:
         run: npm run build
         env:
           CI: true
+          GATSBY_ACTIVE_ENV: production
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
@@ -36,6 +37,7 @@ jobs:
         uses: actions/download-artifact@master
         with:
           name: public
+          path: public
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
