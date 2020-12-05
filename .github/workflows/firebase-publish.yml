@@ -15,7 +15,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@master
       - name: Install Dependencies
-        run: npm install --only=prod
+        run: npm ci --only=production
       - name: Build
         run: npm run build
         env:
