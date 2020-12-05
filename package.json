@@ -10,7 +10,8 @@
     "clean": "gatsby clean",
     "proxy": "netlify-cms-proxy-server",
     "lint": "eslint .",
-    "deploy": "gatsby build && firebase deploy"
+    "deploy": "gatsby build && firebase deploy",
+    "postversion": "git push origin master && git push --tags"
   },
   "dependencies": {
     "@narative/gatsby-theme-novela": "^0.*",
