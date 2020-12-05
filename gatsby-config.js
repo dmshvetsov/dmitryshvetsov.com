@@ -2,18 +2,18 @@ require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
-    title: 'Dmitry Shvetsov, Upbeat Software Developer and Mentor.',
+    title: 'Dmitry Shvetsov, Software Developer and Mentor.',
     name: 'Dmitry Shvetsov',
     siteUrl: 'https://dmitryshvetsov.com',
-    description: 'Free online mentorship calls. I help novice developers gain experience and write good code.',
+    description: 'Read about programming, ruby, javascript, typescript, productivity, mindset, and how to lead teams',
     hero: {
-      heading: 'Become A Better Software Developer',
+      heading: 'A Place to Read About Productivity, Mindset, How to Lead Teams, and Solving Problems With Technologies',
       maxWidth: '100%'
     },
     social: [
       {
         name: 'twitter',
-        url: 'https://twitter.com/iamdidev'
+        url: 'https://twitter.com/dmshvetsov'
       }
     ]
   },

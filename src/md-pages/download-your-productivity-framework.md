@@ -10,7 +10,7 @@ I&apos;m using it to design my weeks for effortless execution for more than half
 
 ### **Let&apos;s be in touch!**
 
-Follow me on [Twitter.](https://twitter.com/iamdidev)
+Follow me on Twitter [@dmshvetsov](https://twitter.com/dmshvetsov).
 
 ### **Wait, that&apos;s not all!** 
 
