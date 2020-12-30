@@ -1,0 +1,168 @@
+---
+title: "Book notes: Mastering PostreSQL in Application Development by Dimitri Fontaine"
+slug: "mastering-postgresql-in-application-development"
+author: "Dmitry Shvetsov"
+hero: images/hero.jpg
+---
+
+> The goal of this book is to provide you, the application developer, with new and powerful tools.
+
+The first sql example in the book shows how to import big CSV file (NYSE
+exchange daily trading data from 2020 year) to a DB with only 21 lines of SQL
+including `create table` statement. In yearly days of my career I spent weeks
+to write fast import of 23+ thousands lines of CSV with code.
+
+A reliable way to stop worying about SQL injection is to study how to send SQL
+query parameters separetly from the main SQL query.
+
+In many cases processing, changing, calculating data on the database side result
+in the more performant and lest resource cost applications.
+
+PostgreSQL gurantees that it won't lose any committed changes not eve an event of operating system crash. The only risk is disk corruption. Thus practice of making backups is important.
+
+PostgreSQL is a stateful service on top of which we should build the other parts of the app or the system. It will be esier to achive scalability and high availability because they will be stateless services.
+
+Structured Query Language (SQL) is a strong statically typed, domain-specific declarative programming language where we need to specify what, is a result, not how, algorithms.
+
+SQL is extendable. SQL operators and functions are looked up at run-time. Functions and operators in PostgreSQL support polymorphism. Thus almost every part of PostgreSQL can be extended.
+
+Thins about PosrgreSQL database as a concurrent data access service instead of storage layer.
+
+PostgreSQL docs is one of the best in the software world. Version 9.6 has 3376 pages in A4 format. Only table of content takes 32 pages.
+
+You can access docs in  `psql` utility with `\h <command>`.
+
+The main aspects to consider in terms of where to maintain the business logic in the app code or in SQL code are the correctness and the efficiency aspects of your code architecture and organization.
+
+Solving business logic in app vs in sql, considering use case "display the list of albums from a given artist, each with its total duration":
+* sql fetch data in transactions that guranteed consisted data, app code that makes more than one queries to fetch releted data might fetch inconsistent data changed between app queries to the DB.
+* writing queries in most cases faster than write app code, assuming you know sql and app code programing language in comparable levels.
+* to run app code to fetch and manipulate data we need send query, often over the network, in some cases more than one query for different entities, sql can be done on the DB side without roundtrips and with single request.
+* computation in the app code requires memory to manipulate fetched data and addition CPU cycles after data is fetched.
+* often ORM usage encourage to fetch all fields of the table with default `select *` which is useless usage of all the computation resources.
+* resources CPU, memory , network, disk that we need to run app code vs sql code
+
+In the end with logic in SQL it is easier to achieve more efficient in terms of resources, easier mantainable, consistent in terms of data retrieved and results code.
+
+Read uncommitted isolation level actually implements read committed.
+
+The common usecase for Repeatable read isolation level is making online(?) backups.
+
+You can specify different level of isolation per transaction.
+
+If you want to be efficient when use stored procedures write them in SQL and avoid PLpgSQL.
+
+> rather than invest in an extra layer of caching architecture in front of your APIs, wouldn’t it be better to write smarter and more efficient SQL?
+
+Lateral join allowing one to write explicit loops in SQL.
+
+Most PostgreSQL advanced experts favor `psql` to advanced visual query editing tools.
+
+Configure `psql` for your need by adding `.psqlrc` at the root folder for your user (for *nix users).
+
+Use `\set ON_ERROR_ROLLBACK interactive` for `psql` to automate savepoint creation and rollback to them in case of errors while you inside transaction using `psql`.
+
+Main usecases of `psql` is preparing, trying things for your next query and as a reporting tool, and discovering database schema.
+
+Setup EDITOR environment variable in the `.psqlrc` or inside `psql` session or inside shell profile and issue `\e` `psql` to edit sql in you editor of choice.
+
+> realizing that your database engine actually is part of your application logic. Any SQL statement you write, even the sim- plest possible, does embed some logic
+
+Avoid using `natural jooin` columns and their semantic will change.
+
+Format your SQL for readability. We spend much more time reading the code than writing it.
+
+Don't shorten variables to "a1" and "a2", to "o" and "l", you would pass this variables on the code review of your app code. Why you should pass it for SQL code? Again, readability matters.
+
+Comment code when you want to make it easier for future reader to understand your intention and why you wrote this SQL not other.
+
+Utilizy PostgreSQL `application_name` facility to simplify debugging. In logs you will see where this SQL comes from. You can set it in connection string or with `\set` command in your PostgreSQL client, `psql` for example.
+
+You can write regression tests for your SQL using [pgTap](https://github.com/theory/pgtap/), [RegreSQL](https://github.com/dimitri/regresql).
+
+In absence of an index a DB can only find records by sequential scan of tables.
+
+Constraints `unique`, `primary key`, `exclude using` use indexes to do their job. PostgreSQL creates indexes for the constraints automaticaly to behave correctly.
+
+> As writing the SQL queries is the job of a developer, then coming up with the right indexing strategy for an application is also the job of the developer.
+
+MVCC – multiversion concurrency control; each SQL statement sees a snapshot of data at it was some point of time in the past
+
+Each index adds write cost for `insert`, `update`, and `delete`.
+
+`B-Tree` index is default index type. Very efficient, for the most cases.
+
+`GiST` or generalized search tree index support 2-dimensional data types, geometry point or ranges.
+
+`SP-GiST` or spaced partitioned gist support non-balanced disk-based data structures, quadtrees, k-d trees, radix trees.
+
+`GIN` or generalized inverted index for composite data, documents, arrays. An inverted index contains a separte entry for each part of value. Used for full text search.
+
+`BRIN` or block rage index. ??? can be used differently. Useful to cover multiple columns and queries referenceing most or all columns included in the index.
+
+`Hash` indexes can handle only simple equality comparisons. Never use `Hash` indexes before version 10 of PostgreSQL.
+
+`Bloom filters` space-efficient. Useful to cover multiple columns and queries referenceing most or all columns included in the index. Only support equality queries. `B-Tree` faster than bloom index.
+
+System wide analusis can be don eusing [`pg_stat_statements` extension](https://www.postgresql.org/docs/current/pgstatstatements.html).
+
+Visual tools to read `explain` output [explain.depesz](https://explain.depesz.com/) and [Pev](http://tatiyants.com/pev/#/about).
+
+When (explain analyze) effective row counts biger in thousand of times or more than estimated, check if tables are analyzed frequently enough by the Autovacuum Daemon, then check if you should adjust your statistics target, Finally check how much time spent doing sequential scans of data in the filter step.
+
+Amdahl's law: "if some step takes 10% of the run time, then the best optimization you can reach from dealing with this step is 10% less, and usually that’s by removing the step entirely"
+
+> The vast majority of slow queries found in the wild are still queries that return way too many rows to the application, straining the network and the servers memory. [..] The first rule of optimization in SQL, as is true for code in general, is to answer the following question: "Do I really need to do any of that?"
+
+> The SQL writing process is mainly about discovery. In SQL you need to explain your problem, unlike in most programming languages where you need to focus on a solution you think is going to solve your problem.
+
+> Here’s some good advice I received years and years ago, and it still applies to this day: when you’re struggling to write a SQL query, first write down a single sentence —in your native language— that perfectly describes what you’re trying to achieve. As soon as you can do that, then writing the SQL is going to be easier.
+
+SQL is a declarative language you need to state what you want.
+
+Parts of SQL:
+* Data manipulation language (DML).
+* Data definition language (DDL).
+* Transaction control language TCL.
+* data control language DCL.
+* specific to PostgreSQL commands: analyze, cluster, prepare, execute, explain, listen, notify, lock, set, and more.
+
+Aguments against `select *`:
+* it hides the intention of the code
+* it makes harder to review the code
+* it is not efficient in terms of resources usage to retrieve all the bytes (especialy while your table columns number growth over time)
+
+PostgreSQL is a strong tool to work with calendar, dates, and time zones. Doing it yourself in the app code mean deal with tons of odd problems.
+
+
+Simple `where` clauses leads to better indexes usage.
+
+Use short-cicuit eveluation when using `and` in `where`
+
+`or` operator is harder to optimzie for indexes.
+
+Indexes should never chage the result set of a query. If they does it is a bug or corrupted data.
+
+Lateral joins allows to write subqueries that runs in a loop over a given to the join data set.
+
+> Another interesting implication of using a left join lateral subquery is how the join clause is then written: on true. That’s because we inject the join condition right into the subquery as a where clause. This trick allows us to only see the results from the current decade in the subquery, which then uses a limit clause on top of the order by wins desc to report the top three with the most wins.
+
+`offset` causing performance issues. `offset` command will read all records before it will get to the point where the offset ends. Thus it's going worse and worse when `offset` argument are growing.
+
+On aggreages when `group by` ommited we aggregate the whole set.
+
+`having` clause can not references aliases from the `select` statement.
+
+`grouping sets` allows to aggregate for several groups in parallel.
+
+`rollup clause` generates permutations for each column of the grouping sets
+
+You can chain common table expressions like `whith name1 as (), name2 as (), name3 as ()`. The next expression will have access to the previous by its name.
+
+Aggregates cannot be nested. Use common table expressions to make a pipeline of aggregates.
+
+`union` without `all` remove duplicates from the result set.
+
+`except` operator is useful to get a diff between two result sets. For example when you write tests for SQL queries.
+
+
