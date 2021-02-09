@@ -6,21 +6,17 @@ date: "2020-12-31"
 hero: images/hero.png
 ---
 
-For most of my life, I’ve avoided books. This year I found joy in reading, which came about from a growing interest in a particular topic – financial freedom. Back in 2018 a friend of mine recommended two books on that topic to me “The Road to Financial Freedom” by Bodo Schaefer and “Rich Dad Poor Dad” by Robert Kiyosaki. After reading them and getting the result I wanted, I found myself wanting to read more and more.
+For most of my life, I’ve avoided books. In year 2020 I found joy in reading, which came about from a growing interest in a particular topic – financial freedom. Back in 2018 a friend of mine recommended two books on that topic to me “The Road to Financial Freedom” by Bodo Schaefer and “Rich Dad Poor Dad” by Robert Kiyosaki. After reading them and getting the result I wanted, I found myself wanting to read more and more.
 
 The transition from a person who does not consume books at all to a person who reads or listen books every day was smooth and took place over 2 years. At first I listened to books only on the road, now I read every day as a part of my morning routine.
 
 I didn't expect this to happen, it wasn't the goal. I wanted to read one book first and then another. My "want to read" list has never been empty; it only grows.
 
-In year 2020 I finished 25 books; more books than I had ever read or listened to in my entire life.
-
- 
+In the past year I finished 25 books; more books than I had ever read or listened to in my entire life.
 
 I mentioned the topic of goals. In the past year, I learned one thing from my own experience about goal setting. Setting targets for yourself that are 10x greater than what you believe you can achieve is something I aspire to. Making 10x goals certainly is inspiring, but measuring yourself by it can be devastating.
 
-I looked at where I am and where my goals are. The gap was huge and it was demoralizing. The rule I learned from Dan Sullivan and Benjamin Hardy is to measure the progress not the gap.
-
- 
+I looked at where I am and where my goals are. The gap was huge and it was demoralizing. The rule I learned from Dan Sullivan and Benjamin Hardy is to measure the gain not the gap.
 
 Another leason related to focus and “The Ten Years of Silence” rule.
 
@@ -76,10 +72,6 @@ Hit my first 100 [subscribers to my newsletter/blog](https://gift.dmitryshvetso
 
 Decided to write a book. The initial thought was to write a book about how to be a better developer. This resulted in dozens of ideas for chapters and I decided to battle test them by writing a series of articles. Three of them were written this month:
 
- 
-
-
-
 *   [The Prestige: The Secret You Don’t Want to Overlook](https://dmitryshvetsov.com/the-prestige-the-secret-you-dont-want-to-overlook)
 *   [Want To Write The Best Code You Possibly Can? Read this](https://dmitryshvetsov.com/want-to-write-the-best-code-you-possibly-can-read-this)
 *   [3 Smart Ways To Increase Learnability, Confidence, and Results](https://dmitryshvetsov.com/3-smart-ways-to-increase-learnability-confidence-and-results)
@@ -91,11 +83,7 @@ Decided to write a book. The initial thought was to write a book about how to be
 
 As a part of the book project I recorded my first video [interview with Daragh Byrne](https://www.youtube.com/watch?v=L27BWy5HPB4) on how to become a better developer, and how meditation and mindfulness can help. Daragh is an engineering manager and meditation teacher at [https://codingmindfully.com/](https://codingmindfully.com/).
 
- 
-
 Last month of my full-time job.
-
- 
 
 ## June
 
