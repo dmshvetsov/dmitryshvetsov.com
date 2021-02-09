@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "site",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "license": "MIT",
   "engines": {
     "node": ">= 14.15.1",
