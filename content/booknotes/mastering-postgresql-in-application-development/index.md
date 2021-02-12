@@ -1,13 +1,15 @@
 ---
-title: "Book notes: Mastering PostreSQL in Application Development by Dimitri Fontaine"
-slug: "mastering-postgresql-in-application-development"
+title: "Book notes: The Art Of PostgreSQL by Dimitri Fontaine"
+slug: "the-art-of-postgresql-by-dimittri-fontaine"
 author: "Dmitry Shvetsov"
 hero: images/hero.jpg
 ---
 
-> The goal of this book is to provide you, the application developer, with new and powerful tools.
+> “The goal of this book is to provide you, the application developer, with new and powerful tools. Determining how and when to use them has to be done in a case by case basis.”
 
-The first sql example in the book shows how to import big CSV file (NYSE
+Excerpt From: Dimitri Fontaine. “The Art Of PostgreSQL.” Apple Books. 
+
+The first SQL example in the book shows how to import big CSV file (NYSE
 exchange daily trading data from 2020 year) to a DB with only 21 lines of SQL
 including `create table` statement. In yearly days of my career I spent weeks
 to write fast import of 23+ thousands lines of CSV with code.
@@ -52,7 +54,9 @@ You can specify different level of isolation per transaction.
 
 If you want to be efficient when use stored procedures write them in SQL and avoid PLpgSQL.
 
-> rather than invest in an extra layer of caching architecture in front of your APIs, wouldn’t it be better to write smarter and more efficient SQL?
+Note outside the book: default join in PostgreSQL and in SQL in general is `inner join`. When you are using `join` you implicitly saying I want `inner join`.
+
+> "rather than invest in an extra layer of caching architecture in front of your APIs, wouldn’t it be better to write smarter and more efficient SQL?"
 
 Lateral join allowing one to write explicit loops in SQL.
 
@@ -84,7 +88,7 @@ In absence of an index a DB can only find records by sequential scan of tables.
 
 Constraints `unique`, `primary key`, `exclude using` use indexes to do their job. PostgreSQL creates indexes for the constraints automaticaly to behave correctly.
 
-> As writing the SQL queries is the job of a developer, then coming up with the right indexing strategy for an application is also the job of the developer.
+> "As writing the SQL queries is the job of a developer, then coming up with the right indexing strategy for an application is also the job of the developer."
 
 MVCC – multiversion concurrency control; each SQL statement sees a snapshot of data at it was some point of time in the past
 
@@ -145,7 +149,7 @@ Indexes should never chage the result set of a query. If they does it is a bug o
 
 Lateral joins allows to write subqueries that runs in a loop over a given to the join data set.
 
-> Another interesting implication of using a left join lateral subquery is how the join clause is then written: on true. That’s because we inject the join condition right into the subquery as a where clause. This trick allows us to only see the results from the current decade in the subquery, which then uses a limit clause on top of the order by wins desc to report the top three with the most wins.
+> "Another interesting implication of using a left join lateral subquery is how the join clause is then written: on true. That’s because we inject the join condition right into the subquery as a where clause. This trick allows us to only see the results from the current decade in the subquery, which then uses a limit clause on top of the order by wins desc to report the top three with the most wins."
 
 `offset` causing performance issues. `offset` command will read all records before it will get to the point where the offset ends. Thus it's going worse and worse when `offset` argument are growing.
 
@@ -153,16 +157,28 @@ On aggreages when `group by` ommited we aggregate the whole set.
 
 `having` clause can not references aliases from the `select` statement.
 
-`grouping sets` allows to aggregate for several groups in parallel.
+Aggregation with `grouping sets` allows to aggregate for several groups in parallel.
 
-`rollup clause` generates permutations for each column of the grouping sets
+Aggregation with `rollup` clause generates permutations for each column of the grouping sets. Rollup represents the given list of expressions and all prefixes of the list including the empty list. We also have `cube` which represents the given list and all of its possible subsets (i.e. the power set).
 
-You can chain common table expressions like `whith name1 as (), name2 as (), name3 as ()`. The next expression will have access to the previous by its name.
+Common table expression created by `with` clause. It allows to run a query and use results like a table in the following queries.
+
+You can chain common table expressions like `with name1 as (), name2 as (), name3 as ()`. The next expression will have access to the results of the previous expressions by its name.
 
 Aggregates cannot be nested. Use common table expressions to make a pipeline of aggregates.
 
-`union` without `all` remove duplicates from the result set.
+`distinct on (<expression>)` is used to keep only the first row where the given expressioon evaluete to equal. Remember that without `order by` order of rows unpredictable and "the first row" might and will be a different one on each run of a query.
 
-`except` operator is useful to get a diff between two result sets. For example when you write tests for SQL queries.
+Note outside the book: there are `distinct <list of select attributes>` which is applies to the entire tuple, not to an attribute of the result. It will filter out duplicates where all values of the tuple is the same. [An article that describe the difference in details](https://sandeep45.github.io/postgresql/sql/rails/distinct/distinct_on/2018/07/22/distinct-vs-distinct-on.html)
 
+You can add literal values to the result of a query like `select 'driver' as type;`.
 
+`union` is useful when we need to combine results of more than 1 queries. Without `all` remove duplicates from the result set.
+
+Outside of the book note: you required to name columns the same way (double check this!) and need to have the same number of result columns in combined queries when you union them.
+
+`except` operator is useful to get a diff between two result sets. For example when you write tests for SQL queries or want to remove rows from one query that existis in another query (lists the drivers who received no points in race 972 (Russian Grand Prix of 2017-04-30) despite having gotten some points in the previous race (id 971, Bahrain Grand Prix of 2017-04-16)).
+
+http://ergast.com/images/ergast_db.png
+
+http://ergast.com/docs/f1db_user_guide.txt
