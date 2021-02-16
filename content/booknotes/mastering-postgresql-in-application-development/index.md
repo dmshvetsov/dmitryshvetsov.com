@@ -179,6 +179,18 @@ Outside of the book note: you required to name columns the same way (double chec
 
 `except` operator is useful to get a diff between two result sets. For example when you write tests for SQL queries or want to remove rows from one query that existis in another query (lists the drivers who received no points in race 972 (Russian Grand Prix of 2017-04-30) despite having gotten some points in the previous race (id 971, Bahrain Grand Prix of 2017-04-16)).
 
+`cross join` implements Cartesian product over datasets.
+
+To understand behavior of `null` in SQL think of it as meaning "I don’t know what this is" rather than "no value".
+
+> “Say you have in A (left hand) something (hidden) that you don’t know what it is and in B (right hand) something (hidden) that you don’t know what it is. You’re asked if A and B are the same thing. Well, you can’t know that, can you?”
+
+Hence `null = null` always result in `null`. But `null is distinct from null` results in `true` value.
+
+Default value for any column is `null` unless you specified the default value. If your application requires to value exists make columns `not null` to remove the need of checks for nulls in your application code.
+
+All quotes are excerpts from “The Art Of PostgreSQL” by Dimitri Fontaine.
+
 http://ergast.com/images/ergast_db.png
 
 http://ergast.com/docs/f1db_user_guide.txt
