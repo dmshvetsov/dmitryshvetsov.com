@@ -185,9 +185,13 @@ To understand behavior of `null` in SQL think of it as meaning "I don’t know w
 
 > “Say you have in A (left hand) something (hidden) that you don’t know what it is and in B (right hand) something (hidden) that you don’t know what it is. You’re asked if A and B are the same thing. Well, you can’t know that, can you?”
 
-Hence `null = null` always result in `null`. But `null is distinct from null` results in `true` value.
+Hence `null = null` always result in `null`. But `null is distinct from null` results in `true` value. When you write raw queries in your app use `null is null`, `null is not null` or with some column `username is null`, `username is not null`. `username = null` return no rows.
 
 Default value for any column is `null` unless you specified the default value. If your application requires to value exists make columns `not null` to remove the need of checks for nulls in your application code.
+
+> "There was SQL before window functions and there is SQL af􏰂er window functions"
+
+Window functions are for those cases when you want to make computation in current row with other rows.
 
 All quotes are excerpts from “The Art Of PostgreSQL” by Dimitri Fontaine.
 
