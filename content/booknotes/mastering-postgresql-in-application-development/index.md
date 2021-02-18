@@ -191,7 +191,13 @@ Default value for any column is `null` unless you specified the default value. I
 
 > "There was SQL before window functions and there is SQL af􏰂er window functions"
 
-Window functions are for those cases when you want to make computation in current row with other rows.
+Window functions are for those cases when you want to make computation when you processing current row but want to access other rows. TODO: examples.
+
+Window functions happens after the where clause so you only see rows in the function that was last after the where filtering.
+
+TODO: explain `over (order by)`
+
+`over (partition by)` allows to make computation with others rows that satisfy the partition condition. Partition it is a where condition inside a window function.
 
 All quotes are excerpts from “The Art Of PostgreSQL” by Dimitri Fontaine.
 
