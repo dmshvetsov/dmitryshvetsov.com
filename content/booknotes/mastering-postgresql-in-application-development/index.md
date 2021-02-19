@@ -7,7 +7,7 @@ hero: images/hero.jpg
 
 > “The goal of this book is to provide you, the application developer, with new and powerful tools. Determining how and when to use them has to be done in a case by case basis.”
 
-Excerpt From: Dimitri Fontaine. “The Art Of PostgreSQL.” Apple Books. 
+Relation is a set of data all having a common set of properties but with an exceptions that duplicates are allowed in SQL and "set" is not an 100% accurate term. Any result of a query defined in terms of being a relation of a known composite data type. Relations can be defined in advance with `create table` or  `create type` statements or on the fly by the query planner.
 
 The first SQL example in the book shows how to import big CSV file (NYSE
 exchange daily trading data from 2020 year) to a DB with only 21 lines of SQL
@@ -191,13 +191,17 @@ Default value for any column is `null` unless you specified the default value. I
 
 > "There was SQL before window functions and there is SQL af􏰂er window functions"
 
-Window functions are for those cases when you want to make computation when you processing current row but want to access other rows. TODO: examples.
+Window functions are for those cases when you want to make computation when you processing current row but want to access other rows. For example results of sales in comparison with previous period sales. Use window functions whenever you want to compute values for each row and those values computation depends on other rows.
 
-Window functions happens after the where clause so you only see rows in the function that was last after the where filtering.
+Window functions executes last in the query. Thus they happens after the where clause so you only see rows in the function that was last after the where filtering. In any frame you can only see rows that have been selected for output.
 
 TODO: explain `over (order by)`
 
 `over (partition by)` allows to make computation with others rows that satisfy the partition condition. Partition it is a where condition inside a window function.
+
+All aggregate function can be used against a window frame rather than a grouping clause.
+
+You can create your custom aggregate function.
 
 All quotes are excerpts from “The Art Of PostgreSQL” by Dimitri Fontaine.
 
