@@ -203,6 +203,20 @@ All aggregate function can be used against a window frame rather than a grouping
 
 You can create your custom aggregate function.
 
+Cartesian product is a set of all possible combinations of all entries.
+
+Joins takes two relations and join condition. A relation is a bag of rows that all share a common relation data type definition – set of columns with specific type.
+
+Use `inner join` to keep rows that satisfy the join condition on left and right side of the join.
+
+Use `outer join` to keep all rows of the left relation in the join and link rows from right side of the join that satisfy the join condition. When there is no rows that satisfy the condition on the right side null value will be placed in column values instead of data.
+
+`full outer join` is a special case of an `outer join` where you want to keep all the rows in the dataset, whether they satisfy the join condition or not.
+
+Lateral joins introduce the capability for the join condition to be pushed down into the relation on the right, allowing for new semantics such as top-N queries, thanks to being able to use limit in a lateral subquery. (TODO understand it and write better note)
+
+> “People constantly try to apply their knowledge about algorithms to SQL statements, without knowing which algorithm the database actually uses. This causes a lot of problems, confusion and frustration. First, always focus on writing a clear statement to describe each column and row of the desired result. If needed, you can take care of performance afterwards. This however, requires some understanding of database internals.” – Markus Winard author of “SQL Performance explained”
+
 All quotes are excerpts from “The Art Of PostgreSQL” by Dimitri Fontaine.
 
 http://ergast.com/images/ergast_db.png
