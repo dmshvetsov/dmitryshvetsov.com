@@ -217,6 +217,8 @@ Lateral joins introduce the capability for the join condition to be pushed down 
 
 > “People constantly try to apply their knowledge about algorithms to SQL statements, without knowing which algorithm the database actually uses. This causes a lot of problems, confusion and frustration. First, always focus on writing a clear statement to describe each column and row of the desired result. If needed, you can take care of performance afterwards. This however, requires some understanding of database internals.” – Markus Winard author of “SQL Performance explained”
 
+RDBMS is more like transaction systems rather than storage system. Programming languages can store and retrieve data from files. And DB are not for solving the storage problems.
+
 All quotes are excerpts from “The Art Of PostgreSQL” by Dimitri Fontaine.
 
 http://ergast.com/images/ergast_db.png
