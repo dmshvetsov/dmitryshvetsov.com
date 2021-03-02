@@ -219,7 +219,17 @@ Lateral joins introduce the capability for the join condition to be pushed down 
 
 RDBMS is more like transaction systems rather than storage system. Programming languages can store and retrieve data from files. And DB are not for solving the storage problems.
 
+Consistency is the main problem that a relatioinal database management system is meant to solve.
+
+One interpretation of a domain is a set of values that are given a common name.
+
+Relation (domain) contains bag of tuples. Tuples are attribute-value pairs with specified types and rules such as constraints and triggers.
+
+Decorated literal to enforce type syntax `date '2021-03-02'`, full query will be looking like this `select data '2021-03-02';`.
+
 All quotes are excerpts from “The Art Of PostgreSQL” by Dimitri Fontaine.
+
+Fun alias to get `00:00:00` time in PostgreSQL `select date 'today' + time 'allballs' as midnight;` will result in `2021-03-02 00:00:00`.
 
 http://ergast.com/images/ergast_db.png
 
