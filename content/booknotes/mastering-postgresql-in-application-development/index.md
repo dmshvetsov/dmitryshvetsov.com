@@ -227,10 +227,28 @@ Relation (domain) contains bag of tuples. Tuples are attribute-value pairs with 
 
 Decorated literal to enforce type syntax `date '2021-03-02'`, full query will be looking like this `select data '2021-03-02';`.
 
-All quotes are excerpts from “The Art Of PostgreSQL” by Dimitri Fontaine.
-
 Fun alias to get `00:00:00` time in PostgreSQL `select date 'today' + time 'allballs' as midnight;` will result in `2021-03-02 00:00:00`.
+
+`pg_typeof` to get type of column or literal value.
+
+PostgreSQL is statically typed and dispatches appropriate functions for used data types dynamically.
+
+`having bool_and(position = 1) is true` (TODO: look for different example) is for filtering in aggregation to filter away unwanted results and leave aggregated result that all satisfies the condition `position = 1`. For `group by year, drivers.driverid` drivers in seasons. (FIXME: wrong statement?)
+
+Using `is` instead of `=` will produce more sane results. Because `select false = null;` will return `null` not `false` and `select false is null;`  will return `false`.
+
+Side note: `select null/0;` will return `null` and not throw an error.
+
+PostgreSQL know how to count characters of strings that in Unicode.
+
+PostgreSQL supports indexing for regular expressions thanks to [pg_trgm](https://www.postgresql.org/docs/current/pgtrgm.html).
+
+PostgreSQL support full text search with ranking, highlighting, pluggable parsers, dictionaries, stemmers, synonyms, and thesaurus.
+
+---
 
 http://ergast.com/images/ergast_db.png
 
 http://ergast.com/docs/f1db_user_guide.txt
+
+All quotes are excerpts from “The Art Of PostgreSQL” by Dimitri Fontaine.
