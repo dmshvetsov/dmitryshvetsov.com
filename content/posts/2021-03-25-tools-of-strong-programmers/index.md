@@ -31,7 +31,7 @@ In square brackets [like these] I supplement the quotes with my own words so tha
 
 The rest of the text is the distilled answers and thoughts of the heroes of this article. In most cases I have used the original words and my job here is only to summarize and highlight the most important.
 
-Therefore, I want to say a huge thank you to everyone who agreed to share their path in programming. A list of them is at the very end of this article. Some wished to remain anonymous.
+Therefore, I want to say a huge thank you to everyone who agreed to share their path in programming. A list of them is at <a href="#bottom">the very end of this article</a>. Some wished to remain anonymous.
 
 
 ## What makes the difference between a mediocre programmer and a strong one?
@@ -441,7 +441,7 @@ It is important to be able to solve blocks while working on a task. Here’s how
 4. Look into the source code. For third party products you can fetch a Docker image, start debugging with breakpoints and see how the product works from the inside. Do this simultaneously with the first three actions!
 
 
-## More to come…
+<h2 id="bottom">More to come…</h2>
 
 > “Art is never finished, only abandoned.” — Leonardo da Vinci
 
