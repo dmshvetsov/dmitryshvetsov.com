@@ -449,7 +449,7 @@ By the time I came to publish this article, I had even more programmers on my li
 
 This page will be updated over time.
 
-Subscribe to my mailing list to find out when there will be more nuggets of wisdom and easy-to-forget simple rules added. &lt;link to convertkit form>
+[Subscribe to my newsletter now](https://gift.dmitryshvetsov.com/tbpm-newsletter) to find out when there will be more nuggets of wisdom and easy-to-forget simple rules added.
 
 
 ## Heroes of this article
