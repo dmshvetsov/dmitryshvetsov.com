@@ -441,7 +441,7 @@ It is important to be able to solve blocks while working on a task. Here’s how
 4. Look into the source code. For third party products you can fetch a Docker image, start debugging with breakpoints and see how the product works from the inside. Do this simultaneously with the first three actions!
 
 
-<h2 id="bottom">More to come…</h2>
+## More to come…
 
 > “Art is never finished, only abandoned.” — Leonardo da Vinci
 
@@ -452,7 +452,7 @@ This page will be updated over time.
 [Subscribe to my newsletter now](https://gift.dmitryshvetsov.com/tbpm-newsletter) to find out when there will be more nuggets of wisdom and easy-to-forget simple rules added.
 
 
-## Heroes of this article
+<h2 id="bottom">Heroes of this article</h2>
 
 Many thanks to these people for their answers and for the great chat!
 
