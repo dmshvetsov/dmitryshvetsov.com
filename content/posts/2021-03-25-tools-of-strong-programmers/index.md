@@ -269,7 +269,7 @@ Vadim Tsesko advises that you write - just for fun - your own implementation of 
 
 A mentor can turn years of self-study into weeks, or months into days.
 
-Vlad Popov missed classes at university. Instead, he went to study with a person who knew the technology he was interested in better than anyone else in his country. Denis Muraviev conducted an intensive course "Advanced Flash Programming", where after a few days, designers were able to write ActionScript code [a relative of ECMAScript].
+Vlad Popov didn't get the knowledge he wanted at a university. Instead, he went to study with a person who knew the technology he was interested in better than anyone else in his country. Denis Muraviev conducted an intensive course "Advanced Flash Programming", where after a few days, designers were able to write ActionScript code [a relative of ECMAScript].
 
 > “When they explained to me what classes are, I didn’t understand why they were needed, when you can write procedures instead” - Vlad Popov
 
