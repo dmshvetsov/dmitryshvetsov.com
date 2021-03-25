@@ -31,7 +31,7 @@ In square brackets [like these] I supplement the quotes with my own words so tha
 
 The rest of the text is the distilled answers and thoughts of the heroes of this article. In most cases I have used the original words and my job here is only to summarize and highlight the most important.
 
-Therefore, I want to say a huge thank you to everyone who agreed to share their path in programming. A list of them is at the very end of this article. Some wished to remain anonymous.
+Therefore, I want to say a huge thank you to everyone who agreed to share their path in programming. A list of them is at <a href="#bottom">the very end of this article</a>. Some wished to remain anonymous.
 
 
 ## What makes the difference between a mediocre programmer and a strong one?
@@ -452,7 +452,7 @@ This page will be updated over time.
 [Subscribe to my newsletter now](https://gift.dmitryshvetsov.com/tbpm-newsletter) to find out when there will be more nuggets of wisdom and easy-to-forget simple rules added.
 
 
-## Heroes of this article
+<h2 id="bottom">Heroes of this article</h2>
 
 Many thanks to these people for their answers and for the great chat!
 
