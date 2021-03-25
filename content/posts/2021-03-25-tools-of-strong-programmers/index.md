@@ -1,12 +1,12 @@
 ---
 title: "[working title] tools of strong programmers"
-slug: "togd"
+slug: "tools-of-strong-programmers"
 author: "Dmitry Shvetsov"
 date: "2021-03-25"
-image: images/hero.png
+hero: images/hero.jpg
 ---
 
-Translactions: [RU](/ru-togd)
+**Translactions: [RU](/ru-tools-of-strong-programmers)**
 
 ## How to take the path to a strong programmer, answers of programmers from Facebook, Amazon, Microsoft and other
 
@@ -473,8 +473,6 @@ Many thanks to the guys for the answers and for the interesting communication.
 *   Vlad Popov, architect at Kinaxis
 
 Asked to remain anonymous:
-
-
 
 *   a programmer from Facebook
 *   an ex. Amazon, ex. Microsoft programmer
