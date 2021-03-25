@@ -123,16 +123,4 @@ export const globalStyles = css`
   img.Image__Zoom ~ div {
     background: transparent !important;
   }
-  blockquote {
-    p {
-      font-size: 1.4em !important;
-      em {
-        font-weight: 400;
-      }
-    }
-    p:last-child {
-      font-size: 1em !important;
-      padding-top: 1em !important;
-    }
-  }
 `;
