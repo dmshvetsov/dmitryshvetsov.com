@@ -4,6 +4,7 @@ slug: "tools-of-strong-programmers"
 author: "Dmitry Shvetsov"
 date: "2021-03-25"
 hero: images/hero.jpg
+excerpt: "What is the route to becoming a strong programmer? Answers from programmers from Facebook, Amazon, Microsoft and more"
 ---
 
 **Translactions: [RU](/ru-tools-of-strong-programmers)**
