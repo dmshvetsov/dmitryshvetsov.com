@@ -9,6 +9,10 @@ excerpt: "What is the route to becoming a strong programmer? Answers from progra
 
 **Translactions: [RU](/ru-tools-of-strong-programmers)**
 
+[Discuss on Tweetter](https://twitter.com/search?q=https%3A%2F%2Fdmitryshvetsov.com%2Ftools-of-strong-programmers), [Hacker News](https://news.ycombinator.com/item?id=26582361), and [Reddit](https://www.reddit.com/search/?q=url%3Admitryshvetsov.com%2Ftools-of-strong-programmers)
+
+[Edit on GitHub](https://github.com/dmshvetsov/dmitryshvetsov.com/edit/master/content/posts/2021-03-25-tools-of-strong-programmers/index.md)
+
 ## What is the route to becoming a strong programmer? Answers from programmers from Facebook, Amazon, Microsoft and more.
 
 How would it change your programming if you could learn how other programmers have become strong, how they solve problems, and what tools they are using?
@@ -471,3 +475,9 @@ And those who asked to remain anonymous:
 *   an ex. Amazon, ex. Microsoft programmer
 *   a programmer from JetBrains
 *   a programmer from ok.ru
+
+---
+
+[Discuss on Tweetter](https://twitter.com/search?q=https%3A%2F%2Fdmitryshvetsov.com%2Ftools-of-strong-programmers), [Hacker News](https://news.ycombinator.com/item?id=26582361), and [Reddit](https://www.reddit.com/search/?q=url%3Admitryshvetsov.com%2Ftools-of-strong-programmers)
+
+[Edit on GitHub](https://github.com/dmshvetsov/dmitryshvetsov.com/edit/master/content/posts/2021-03-25-tools-of-strong-programmers/index.md)
