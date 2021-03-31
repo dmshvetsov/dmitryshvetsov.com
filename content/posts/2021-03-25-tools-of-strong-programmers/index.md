@@ -9,7 +9,7 @@ excerpt: "What is the route to becoming a strong programmer? Answers from progra
 
 **Translactions: [RU](/ru-tools-of-strong-programmers)**
 
-[Discuss on Tweetter](https://twitter.com/search?q=https%3A%2F%2Fdmitryshvetsov.com%2Ftools-of-strong-programmers), [Hacker News](https://news.ycombinator.com/item?id=26582361), and [Reddit](https://www.reddit.com/search/?q=url%3Admitryshvetsov.com%2Ftools-of-strong-programmers)
+[Discuss on Twitter](https://twitter.com/search?q=https%3A%2F%2Fdmitryshvetsov.com%2Ftools-of-strong-programmers), [Hacker News](https://news.ycombinator.com/item?id=26582361), and [Reddit](https://www.reddit.com/search/?q=url%3Admitryshvetsov.com%2Ftools-of-strong-programmers)
 
 [Edit on GitHub](https://github.com/dmshvetsov/dmitryshvetsov.com/edit/master/content/posts/2021-03-25-tools-of-strong-programmers/index.md)
 
@@ -155,9 +155,9 @@ If you are interested in programming and you are ready to spend weekends and eve
 
 > “It is difficult to be successful in IT if you come there for money and hype. It must be a calling." - Dmitry Fedorenko
 
-> “Simple question - will you program if you won’t get paid for it? If not, then my path is not for you" - Dmitry Fedorenko
-
 A good place to start is a position of a web developer in a web studio. This is often а place where the juices are squeezed out of you, but they take junior developers with basic skills, teach them, give them a range of experience, and build in them a habit of finishing their tasks within estimated time.  These are all important skills.
+
+> “Simple question - will you program if you won’t get paid for it? If not, then my path is not for you" - Dmitry Fedorenko
 
 Choosing a company is difficult. Getting a job in a “top” company is a lottery. You can end up in the wrong project, or with the wrong leader, or a weak team.
 
@@ -478,6 +478,6 @@ And those who asked to remain anonymous:
 
 ---
 
-[Discuss on Tweetter](https://twitter.com/search?q=https%3A%2F%2Fdmitryshvetsov.com%2Ftools-of-strong-programmers), [Hacker News](https://news.ycombinator.com/item?id=26582361), and [Reddit](https://www.reddit.com/search/?q=url%3Admitryshvetsov.com%2Ftools-of-strong-programmers)
+[Discuss on Twitter](https://twitter.com/search?q=https%3A%2F%2Fdmitryshvetsov.com%2Ftools-of-strong-programmers), [Hacker News](https://news.ycombinator.com/item?id=26582361), and [Reddit](https://www.reddit.com/search/?q=url%3Admitryshvetsov.com%2Ftools-of-strong-programmers)
 
 [Edit on GitHub](https://github.com/dmshvetsov/dmitryshvetsov.com/edit/master/content/posts/2021-03-25-tools-of-strong-programmers/index.md)
