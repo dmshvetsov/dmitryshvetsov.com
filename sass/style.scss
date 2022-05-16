@@ -65,6 +65,22 @@ p code {
   max-width: 692px;
   margin: 2rem 4rem;
 }
+.ds-content img {
+  max-width: 100%;
+  margin: 1.5rem 0;
+}
+.ds-img-caption {
+  margin: -2.5rem 0 2.5rem 0;
+  text-align: center;
+  font-size: 0.75rem;
+  font-family: 'IBM Plex Mono', monospace;
+}
+.ds-content__separator {
+  margin: 1.5rem 0;
+  text-align: center;
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: 1rem;
+}
 
 .ds-breadcrumbs {
   display: flex;
