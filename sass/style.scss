@@ -1,8 +1,73 @@
 body, html {
-  font-family: monospace;
-  color: #111100;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #666666;
 }
 
-body {
-  padding: 2rem;
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  margin-bottom: 0;
+  line-height: 1.25;
+}
+h1 {
+  font-size: 3rem;
+  color: #222200;
+}
+h2 {
+  font-size: 2.5rem;
+  color: #444400;
+}
+
+.ds-link, a {
+  color: #9a9a00;
+}
+
+ul {
+  list-style-type: square;
+  padding-left: 1.5rem;
+}
+
+pre {
+  font-family: 'IBM Plex Mono', monospace;
+  padding: 1rem 5rem;
+  margin: 0 -5rem;
+}
+code {
+  line-height: 1.5;
+}
+p code {
+  background-color: #eee;
+  padding: 0 0.25rem;
+  border-radius: 0.25rem;
+  font-style: normal;
+  color: #444400;
+}
+
+.ds-hero__header {
+  font-size: 3rem;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+.ds-hero__message {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.ds-system {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.ds-link--external {
+  color: #9a9a00;
+}
+
+.ds-content {
+  max-width: 692px;
+  margin: 2rem 4rem;
+}
+
+.ds-breadcrumbs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3.5rem;
 }

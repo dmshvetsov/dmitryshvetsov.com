@@ -3,12 +3,20 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Dmitry Shvetsov</title>
+  <meta name="description" content="building web3 applications">
+  <meta name="author" content="Dmitry Shvetsov">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ get_url(path="style.css") | safe }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <title>Dmitry Shvetsov</title>
 </head>
 
 <body>
-  {% block content %} {% endblock %}
+  <section class="ds-content">
+    {% block content %} {% endblock %}
+  </section>
 </body>
 
 </html>
