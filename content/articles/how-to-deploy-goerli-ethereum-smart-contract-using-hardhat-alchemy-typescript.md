@@ -1,6 +1,6 @@
 +++
 title = "How to Deploy Ethereum Contract to Goerli network Using Hardhat, Alchemy and TypeScript"
-date = 2022-05-05
+date = 2022-05-24
 +++
 
 In this tutorial, you will deploy an Ethereum smart contract written in solidity to Goerli network backed by Alchemy platform using Node.JS, TypeScript and Hardhat development environment.
