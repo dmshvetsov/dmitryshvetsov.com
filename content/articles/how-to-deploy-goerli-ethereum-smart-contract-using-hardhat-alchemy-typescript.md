@@ -24,7 +24,7 @@ Change directory to the created one. You will execute all the following commands
 
     $ cd hello-contract
 
-_Note: I'm using Unix/Linux commands here. Feel free to submit a [PR for this tutorial](https://github.com/dmshvetsov/dmitryshvetsov.com/blob/master/content/articles/how-to-deploy-ethereum-smart-contract-using-hardhat-alchemy-typescript.md) to include Windows commands_
+_Note: I'm using Unix/Linux commands here. Feel free to submit a [PR for this tutorial](https://github.com/dmshvetsov/dmitryshvetsov.com/edit/master/content/articles/how-to-deploy-goerli-ethereum-smart-contract-using-hardhat-alchemy-typescript.md) to include Windows commands_
 
 Initialize npm project
 
