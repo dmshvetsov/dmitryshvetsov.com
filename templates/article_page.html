@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="ds-system ds-top-line">I'm looking for an editor with any software development experience who is interested in maintaining this site and learn web3 along the way. <a href="https://twitter.com/dmshvetsov">DM me on twitter</a></div>
 <div class="ds-system ds-breadcrumbs"><a href="/">back to home</a><a href="/articles">explore more articles</a></div>
 <div class="ds-system">{{ page.date }}</div>
 <h1>
   {{ page.title }}
 </h1>
 {{ page.content | safe }}
+<div class="ds-system ds-footer--cta"><a href="https://twitter.com/search?q={{ page.permalink | safe }}">discuss on twitter</a></div>
 {% endblock content %}

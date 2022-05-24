@@ -64,7 +64,7 @@ p code {
 .ds-content {
   // max-width: 692px;
   max-width: 800px;
-  margin: 2rem 4rem;
+  margin: 4rem 4rem;
 }
 .ds-content img {
   max-width: 100%;
@@ -87,4 +87,16 @@ p code {
   display: flex;
   gap: 1rem;
   margin-bottom: 3.5rem;
+}
+.ds-footer--cta {
+  margin: 3.5rem 0 5rem 0;
+}
+.ds-top-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #eee;
+  padding: .5rem 0;
 }
