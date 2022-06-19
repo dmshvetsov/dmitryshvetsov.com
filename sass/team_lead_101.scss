@@ -14,10 +14,8 @@ $space-vertical: 1em;
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --headings-font-family: "Merriweather", Georgia, Serif;
-  --body-font-family: "SF Pro Display", "-apple-system", "BlinkMacSystemFont",
-    "San Francisco", "Helvetica Neue", "Helvetica", "Ubuntu", "Roboto", "Noto",
-    "Segoe UI", "Arial", sans-serif;
+  --headings-font-family: Georgia, Serif;
+  --body-font-family: 'IBM Plex Sans', sans-serif;
 }
 
 /* Resets */
