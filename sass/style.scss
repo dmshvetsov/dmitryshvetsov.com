@@ -3,6 +3,8 @@ body, html {
   font-size: 16px;
   line-height: 1.5;
   color: #666666;
+  margin: 0;
+  padding: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -32,9 +34,9 @@ pre {
   font-family: 'IBM Plex Mono', monospace;
   padding: 1rem 5rem;
   margin: 0 -5rem;
-  color: #444400;
 }
-code {
+pre code {
+  color: #c0c5ce;
   line-height: 1.5;
 }
 p code {
@@ -42,6 +44,7 @@ p code {
   padding: 0 0.25rem;
   border-radius: 0.25rem;
   font-style: normal;
+  color: inherit;
 }
 
 .ds-hero__header {
@@ -62,9 +65,8 @@ p code {
 }
 
 .ds-content {
-  // max-width: 692px;
   max-width: 800px;
-  margin: 4rem 4rem;
+  margin: 4rem 1rem;
 }
 .ds-content img {
   max-width: 100%;
@@ -100,3 +102,11 @@ p code {
   background-color: #eee;
   padding: .5rem 0;
 }
+
+/* lg */
+@media (min-width: 1024px) {
+  .ds-content {
+    margin: 4rem 4rem;
+  }
+}
+
