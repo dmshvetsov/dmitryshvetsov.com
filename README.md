@@ -6,7 +6,7 @@
 
 Publish changes in the apps if any. This process is manual for now.
 
-    $ cd apps && yarn publish
+    $ cd apps && yarn build && yarn inject
 
 Then commit changes to the main branch. Cloudflare will build and deploy Zola static site to [dmitryshvetsov.com](dmitryshvetsov.com).
 

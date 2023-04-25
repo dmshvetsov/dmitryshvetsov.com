@@ -4,7 +4,7 @@
 
 Run:
 
-    $ yarn publish
+    $ yarn build && yarn inject
 
 Release parent Zola project. See parent README.md file for more information how to release the parent porject.
 
