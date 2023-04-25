@@ -30,15 +30,15 @@ jobs:
 
       - name: Run yarn install
         uses: borales/actions-yarn@v4
-        working-directory: ./apps
         with:
           cmd: install
+          dir: ./apps
 
       - name: Build and inject apps into the static site
         uses: borales/actions-yarn@v4
-        working-directory: ./apps
         with:
           cmd: inject
+          dir: ./apps
 
       - name: Publish
         uses: cloudflare/pages-action@1
