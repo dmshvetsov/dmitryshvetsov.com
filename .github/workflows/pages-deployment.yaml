@@ -34,11 +34,14 @@ jobs:
           cmd: install
           dir: ./apps
 
-      - name: Build and inject apps into the static site
+      - name: Build apps project
         uses: borales/actions-yarn@v4
         with:
-          cmd: inject
+          cmd: build
           dir: ./apps
+
+      - name: Inject apps into the static site
+        run: mv apps/dist public/apps
 
       - name: Publish
         uses: cloudflare/pages-action@1
