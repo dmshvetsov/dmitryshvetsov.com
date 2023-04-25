@@ -26,14 +26,17 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18.14.1
+          corepack: true
 
       - name: Run yarn install
         uses: borales/actions-yarn@v4
+        working-directory: ./apps
         with:
           cmd: install
 
       - name: Build and inject apps into the static site
         uses: borales/actions-yarn@v4
+        working-directory: ./apps
         with:
           cmd: inject
 
