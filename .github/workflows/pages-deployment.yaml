@@ -11,6 +11,11 @@ jobs:
     name: Deploy to Cloudflare Pages
 
     steps:
+      - name: Install zola CLI
+        uses: taiki-e/install-action@v2
+        with:
+          tool: zola@0.17.1
+
       - name: Checkout
         uses: actions/checkout@v3
 
