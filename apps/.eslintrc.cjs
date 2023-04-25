@@ -2,17 +2,11 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true
   },
   extends: [
-    'standard',
-    'plugin:react/recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended',
-    'prettier',
-    'prettier/standard',
-    'prettier/@typescript-eslint',
-    'prettier/react'
+    "standard",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
