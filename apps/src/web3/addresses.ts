@@ -1,8 +1,10 @@
 export type Network = 'ethereum'
 
 const ETHEREUM_ADDRESSES = Object.freeze({
-  '0x044b75f554b886A065b9567891e45c79542d7357': 'SushiSwap: Route Processor 2',
-  '0xdAC17F958D2ee523a2206206994597C13D831ec7': 'Tether USDT (ERC-20)',
+  '0x044b75f554b886a065b9567891e45c79542d7357': 'SushiSwap: Route Processor 2',
+  '0xdac17f958d2ee523a2206206994597c13d831ec7': 'Tether USDT (ERC-20)',
+  '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2': 'Wrapped Ether (ERC-20)',
+  '0xb50721bcf8d664c30412cfbc6cf7a15145234ad1': 'Arbitrum Foundation: ARB (ERC-20)',
 })
 
 // sushiswap hacked contracts RouterProcessor2
