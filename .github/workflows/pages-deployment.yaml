@@ -39,7 +39,7 @@ jobs:
           VITE_RPC_URL: ${{ secrets.RPC_URL }}
 
       - name: Inject apps into the static site
-        run: mv apps/dist public/apps
+        run: mkdir -p public/appps/is-my-crypto-wallet-safe && mv apps/dist public/apps/is-my-crypto-wallet-safe
 
       - name: Publish
         uses: cloudflare/pages-action@1
