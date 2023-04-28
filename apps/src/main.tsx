@@ -1,19 +1,24 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { QueryClient, QueryClientProvider } from 'react-query'
 import App from './App.tsx'
 import './theme.css'
 import { ConfigProvider } from 'antd'
 
+const queryClient = new QueryClient()
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <ConfigProvider
-      theme={{
-        token: {
-          colorPrimary: '#5b8c00',
-        },
-      }}
-    >
-      <App />
-    </ConfigProvider>
+    <QueryClientProvider client={queryClient}>
+      <ConfigProvider
+        theme={{
+          token: {
+            colorPrimary: '#5b8c00',
+          },
+        }}
+      >
+        <App />
+      </ConfigProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 )

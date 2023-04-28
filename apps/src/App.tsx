@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react'
+import { useQuery } from 'react-query'
 import {
   ERC20_APPROVAL_TOPIC,
   getApprovedSpenderFromLog,
@@ -6,12 +7,13 @@ import {
   isValidAddress,
   getAssetOwnerFromLog,
   getAmountApprovedSpendFromLog,
+  formatAddress,
 } from './web3/address'
 import { getLogs } from './web3/logs'
 import { ETHEREUM_HACKED_CONTRACTS, getNameAlias } from './web3/addresses'
 import { Log } from 'web3-core'
 import { Web3Address } from './web3/types'
-import { Card, Col, Input, Layout, Row, Table, Typography } from 'antd'
+import { Card, Col, Form, Input, Layout, Row, Table, Typography } from 'antd'
 import { formatTx } from './web3/transaction'
 import { isEnv } from './config'
 
@@ -67,12 +69,32 @@ function collectCurrentAllowance(acc: Map<string, What>, item: What) {
 
 // does not takin into account the number of ERC20 token decimals
 function simpleTopAmountFirstSort(item: What) {
-  return (item.amountApprovedSpend.length - item.amountApprovedSpend.length) * -1
+  return (
+    (item.amountApprovedSpend.length - item.amountApprovedSpend.length) * -1
+  )
+}
+
+function useAddressSpendApprovalQuery(address: string) {
+  return useQuery(
+    ['provider', 'getLogs', address],
+    async () => {
+      const logs = await getAddressLogs(address)
+      const allowanceMap = logs
+        .filter(isHackedContractLog)
+        .map(toWhat)
+        .reduce(collectCurrentAllowance, new Map())
+      return Array.from(allowanceMap.values()).sort(simpleTopAmountFirstSort)
+    },
+    {
+      enabled: isValidAddress(address),
+    }
+  )
 }
 
 function App() {
   // FIXME: name wanted
   const [whatList, setWhatList] = useState<What[]>([])
+  const [addressToCheck, setAddressToCheck] = useState('')
   // const [logs, setLogs] = useState<any>(null)
   const [errors, setErrors] = useState<Error[]>([])
   // TODO add router and move wallet check app to /apps/is-my-wallet-safe URL
@@ -88,7 +110,9 @@ function App() {
         .filter(isHackedContractLog)
         .map(toWhat)
         .reduce(collectCurrentAllowance, new Map())
-      setWhatList(Array.from(allowanceMap.values()).sort(simpleTopAmountFirstSort))
+      setWhatList(
+        Array.from(allowanceMap.values()).sort(simpleTopAmountFirstSort)
+      )
     } catch (err) {
       console.debug(err)
       if (err instanceof Error) {
@@ -96,6 +120,8 @@ function App() {
       }
     }
   }, [])
+
+  const spendApprovalQuery = useAddressSpendApprovalQuery(addressToCheck)
 
   const handleGetApprovalsForHackedContracts = useCallback(async () => {
     try {
@@ -120,14 +146,26 @@ function App() {
           <Typography.Title>Is my crypto wallet safe?</Typography.Title>
         </Row>
         <Row className="d12v-layout--row">
-          <Col span={12}>
+          <Col span={12} sm={24}>
             <div>
-              <Input.Search
-                placeholder="input wallet address to check"
-                enterButton="Check"
-                size="large"
-                onSearch={handleAddressCheck}
-              />
+              <Form.Item
+                extra={
+                  addressToCheck !== '' && !isValidAddress(addressToCheck) ? (
+                    <Typography.Text type="danger">
+                      invalid wallet address
+                    </Typography.Text>
+                  ) : undefined
+                }
+              >
+                <Input.Search
+                  placeholder="input wallet address to check"
+                  enterButton="Check"
+                  size="large"
+                  // onSearch={handleAddressCheck}
+                  onSearch={setAddressToCheck}
+                  loading={spendApprovalQuery.isLoading}
+                />
+              </Form.Item>
             </div>
           </Col>
         </Row>
@@ -148,10 +186,38 @@ function App() {
           </Row>
         )}
 
-        {whatList.length > 0 && (
+        {spendApprovalQuery.data && (
           <Row className="d12v-layout--row">
             <Col span={24}>
               <Card>
+                {spendApprovalQuery.data.length > 0 && (
+                  <p>
+                    <Typography.Text>
+                      List of known hacked smart contracts where wallet{' '}
+                      {formatAddress(addressToCheck)} has approved funds to
+                      spend, below funds may be at risk
+                    </Typography.Text>
+                  </p>
+                )}
+                {spendApprovalQuery.data.length === 0 && (
+                  <>
+                    <p>
+                      <Typography.Text>
+                        There is no approved funds to spend in known hacked
+                        smart contracts.
+                      </Typography.Text>
+                    </p>
+                    <p>
+                      <Typography.Text type="secondary">
+                        This tool does do it best but does not gurantee to find
+                        all possible treats to funds in the wallet, there are
+                        many more ways to lose assets using wallets, be
+                        responsible and do your own research on how to mitigate
+                        above and other risks.
+                      </Typography.Text>
+                    </p>
+                  </>
+                )}
                 <Table
                   showHeader={false}
                   pagination={whatList.length > 25 ? undefined : false}
@@ -166,9 +232,9 @@ function App() {
                       </p>
                       <p>
                         <Typography.Text type="secondary">
-                          This tool does it best but does not gurantee to find
-                          all possible treats to funds in the wallet, there are
-                          many more ways to lose assets using wallets, be
+                          This tool does do it best but does not gurantee to
+                          find all possible treats to funds in the wallet, there
+                          are many more ways to lose assets using wallets, be
                           responsible and do your own research on how to
                           mitigate above and other risks.
                         </Typography.Text>
@@ -181,7 +247,12 @@ function App() {
                       dataIndex: 'amountApprovedSpend',
                       key: 'ammountApprovedSpend',
                       render: (ammountApprovedSpend) => (
-                        <span>{ammountApprovedSpend} amount</span>
+                        <span>
+                          {ammountApprovedSpend === '0'
+                            ? 'zero'
+                            : ammountApprovedSpend}{' '}
+                          amount
+                        </span>
                       ),
                     },
                     {
@@ -189,13 +260,16 @@ function App() {
                       dataIndex: 'asset',
                       key: 'asset',
                       render: (asset, item) => (
-                        <a
-                          href={`https://etherscan.io/address/${item.assetAddress}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {asset}
-                        </a>
+                        <span>
+                          of{' '}
+                          <a
+                            href={`https://etherscan.io/address/${item.assetAddress}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {asset}
+                          </a>
+                        </span>
                       ),
                     },
                     {
@@ -204,7 +278,9 @@ function App() {
                       key: 'hackedContract',
                       render: (hackedContract, item) => (
                         <span>
-                          is at risk in{' '}
+                          {item.amountApprovedSpend === '0'
+                            ? 'is approved to spend'
+                            : 'is at risk in'}{' '}
                           <a
                             href={`https://etherscan.io/address/${item.hackedContractAddress}`}
                             target="_blank"
@@ -231,7 +307,7 @@ function App() {
                       ),
                     },
                   ]}
-                  dataSource={whatList}
+                  dataSource={spendApprovalQuery.data}
                 />
                 {isEnv('development') && (
                   <ul>
