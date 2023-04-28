@@ -200,23 +200,12 @@ function App() {
                   </p>
                 )}
                 {spendApprovalQuery.data.length === 0 && (
-                  <>
-                    <p>
-                      <Typography.Text>
-                        There is no approved funds to spend in known hacked
-                        smart contracts.
-                      </Typography.Text>
-                    </p>
-                    <p>
-                      <Typography.Text type="secondary">
-                        This tool does do it best but does not gurantee to find
-                        all possible treats to funds in the wallet, there are
-                        many more ways to lose assets using wallets, be
-                        responsible and do your own research on how to mitigate
-                        above and other risks.
-                      </Typography.Text>
-                    </p>
-                  </>
+                  <p>
+                    <Typography.Text>
+                      There is no approved funds to spend in known hacked smart
+                      contracts.
+                    </Typography.Text>
+                  </p>
                 )}
                 <Table
                   showHeader={false}
