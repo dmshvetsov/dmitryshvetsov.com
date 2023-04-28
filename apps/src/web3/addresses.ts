@@ -27,9 +27,24 @@ const ETHEREUM_ADDRESSES = Object.freeze({
 export const ETHEREUM_HACKED_CONTRACTS = Object.freeze([
   // '0x044b75f554b886a065b9567891e45c79542d7357', // arbitrum demo
   // '0x74c764D41B77DBbb4fe771daB1939B00b146894A', // arbitrum demo
-  '0x044b75f554b886A065b9567891e45c79542d7357'
+  '0x044b75f554b886A065b9567891e45c79542d7357',
 ])
 
 export function getNameAlias(_network: Network, address: string): string {
-  return ETHEREUM_ADDRESSES[address.toLowerCase() as keyof typeof ETHEREUM_ADDRESSES] ?? address
+  return (
+    ETHEREUM_ADDRESSES[
+      address.toLowerCase() as keyof typeof ETHEREUM_ADDRESSES
+    ] ?? address
+  )
 }
+
+// import { Web3Address } from './types'
+
+// type Contract = {
+//   name: string
+//   address: Web3Address
+// }
+
+// export function getHackedContractsList(_network: Network): Contract[] {
+//   axios client.get('https://raw.githubusercontent.com/dmshvetsov/hacked-smart-contracts/main/evm-1.json')
+// }
