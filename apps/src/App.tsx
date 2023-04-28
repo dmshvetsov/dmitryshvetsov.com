@@ -65,6 +65,11 @@ function collectCurrentAllowance(acc: Map<string, What>, item: What) {
   return acc
 }
 
+// does not takin into account the number of ERC20 token decimals
+function simpleTopAmountFirstSort(item: What) {
+  return (item.amountApprovedSpend.length - item.amountApprovedSpend.length) * -1
+}
+
 function App() {
   // FIXME: name wanted
   const [whatList, setWhatList] = useState<What[]>([])
@@ -83,7 +88,7 @@ function App() {
         .filter(isHackedContractLog)
         .map(toWhat)
         .reduce(collectCurrentAllowance, new Map())
-      setWhatList(Array.from(allowanceMap.values()))
+      setWhatList(Array.from(allowanceMap.values()).sort(simpleTopAmountFirstSort))
     } catch (err) {
       console.debug(err)
       if (err instanceof Error) {
@@ -94,12 +99,12 @@ function App() {
 
   const handleGetApprovalsForHackedContracts = useCallback(async () => {
     try {
-    const logs = await getLogs({
-      topics: [ERC20_APPROVAL_TOPIC, null, ETHEREUM_HACKED_CONTRACTS[0]],
-    })
-    console.log(
-      Array.from(new Set(logs.map(toWhat).map((item) => item.owner)))
-    )
+      const logs = await getLogs({
+        topics: [ERC20_APPROVAL_TOPIC, null, ETHEREUM_HACKED_CONTRACTS[0]],
+      })
+      console.log(
+        Array.from(new Set(logs.map(toWhat).map((item) => item.owner)))
+      )
     } catch (err) {
       console.debug(err)
       if (err instanceof Error) {
@@ -262,27 +267,27 @@ function App() {
 
         {isEnv('development') && (
           <div>
-          <p>
-            example of affected address
-            0x78b90b4F409764b7f3b2940fb30e32a024c4a07D{' '}
+            <p>
+              example of affected address
+              0x78b90b4F409764b7f3b2940fb30e32a024c4a07D{' '}
+              <button
+                className="btn"
+                onClick={() =>
+                  handleAddressCheck(
+                    '0x198C624C960d128C2B9982131Eef2B9494D8e532'
+                  )
+                }
+              >
+                check
+              </button>
+            </p>
             <button
               className="btn"
-              onClick={() =>
-                handleAddressCheck('0x198C624C960d128C2B9982131Eef2B9494D8e532')
-              }
-            >
-              check
-            </button>
-          </p>
-            <button
-              className="btn"
-              onClick={
-                handleGetApprovalsForHackedContracts
-              }
+              onClick={handleGetApprovalsForHackedContracts}
             >
               console log addresses at risk
             </button>
-        </div>
+          </div>
         )}
       </Layout.Content>
       <Layout.Footer>
