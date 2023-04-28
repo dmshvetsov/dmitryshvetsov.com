@@ -1,4 +1,4 @@
-export function formatTx(transactionHash: string, format: 'short'): string {
+export function formatTx(transactionHash: string, _format: 'short'): string {
   return `${transactionHash.slice(0, 8)}...`
 }
 
