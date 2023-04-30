@@ -128,6 +128,9 @@ export function isValidAddress(input: unknown): boolean {
   return Web3.utils.isAddress(input)
 }
 
-export function formatAddress(address: string): string {
-  return `${address.slice(0, 6)}...${address.slice(38, 42)}`
+export function formatAddress(input: string): string {
+  if (input.length !== 42) {
+    return input
+  }
+  return `${input.slice(0, 6)}...${input.slice(38, 42)}`
 }

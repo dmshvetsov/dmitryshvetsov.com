@@ -1,12 +1,5 @@
 export type Network = 'ethereum'
 
-const ETHEREUM_ADDRESSES = Object.freeze({
-  '0x044b75f554b886a065b9567891e45c79542d7357': 'SushiSwap: Route Processor 2',
-  '0xdac17f958d2ee523a2206206994597c13d831ec7': 'Tether USDT (ERC-20)',
-  '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2': 'Wrapped Ether (ERC-20)',
-  '0xb50721bcf8d664c30412cfbc6cf7a15145234ad1': 'Arbitrum Foundation: ARB (ERC-20)',
-})
-
 // sushiswap hacked contracts RouterProcessor2
 // source https://www.theblock.co/post/225473/sushiswap-hack and https://gist.github.com/0xngmi/40c530a6dc219e62939ed911b5d5ac70
 // arbitrum nova 0x1c5771e96C9d5524fb6e606f5B356d08C40Eb194
@@ -30,12 +23,19 @@ export const ETHEREUM_HACKED_CONTRACTS = Object.freeze([
   '0x044b75f554b886A065b9567891e45c79542d7357',
 ])
 
-export function getNameAlias(_network: Network, address: string): string {
-  return (
-    ETHEREUM_ADDRESSES[
-      address.toLowerCase() as keyof typeof ETHEREUM_ADDRESSES
-    ] ?? address
-  )
+type ContractMetadata = {
+  name: string
+}
+
+const ETHEREUM_CONTRACTS_METADATA: Record<string, ContractMetadata> = Object.freeze({
+  '0x044b75f554b886A065b9567891e45c79542d7357': {
+    name: 'SushiSwap: Route Processor 2'
+  }
+})
+
+export function getContractAlias(_network: Network, address: string): string {
+  const found = ETHEREUM_CONTRACTS_METADATA[address]
+  return found?.name ?? address
 }
 
 // import { Web3Address } from './types'

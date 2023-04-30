@@ -10,12 +10,17 @@ import {
   formatAddress,
 } from './web3/address'
 import { getLogs } from './web3/logs'
-import { ETHEREUM_HACKED_CONTRACTS, getNameAlias } from './web3/addresses'
+import { ETHEREUM_HACKED_CONTRACTS, getContractAlias } from './web3/addresses'
 import { Log } from 'web3-core'
 import { Web3Address } from './web3/types'
 import { Card, Col, Form, Input, Layout, Row, Table, Typography } from 'antd'
 import { formatTx } from './web3/transaction'
 import { isEnv } from './config'
+import {
+  TokenMetadata,
+  getTokenMetadata,
+  isTokenMetadata,
+} from './clients/token-client'
 
 function isHackedContractLog(log: Log): boolean {
   return (
@@ -26,12 +31,10 @@ function isHackedContractLog(log: Log): boolean {
   )
 }
 
-// FIXME: name wanted
-type What = {
+type SpendAllowance = {
   transactionHash: string
-  hackedContract: string
   hackedContractAddress: string
-  asset: string
+  hackedContractAlias: string
   assetAddress: string
   blockNumber: number
   owner: string
@@ -39,16 +42,29 @@ type What = {
   amountApprovedSpend: string
 }
 
-// FIXME: name wanted
-function toWhat(input: Log): What {
+function nameAlias(
+  tokensMetadata: TokenMetadata[],
+  assetAddress: Web3Address
+): string {
+  const foundMetadata = tokensMetadata.find(
+    (data) => data.address.toLowerCase() === assetAddress.toLowerCase()
+  )
+  if (foundMetadata && foundMetadata.symbol) {
+    return foundMetadata.symbol
+  }
+  return formatAddress(assetAddress)
+}
+
+function spendAllowanceFrom(input: Log): SpendAllowance {
   const hackedContractAddress = getApprovedSpenderFromLog(input, {
     format: 'utf8',
   })
   return {
     transactionHash: input.transactionHash,
-    hackedContract: getNameAlias('ethereum', hackedContractAddress),
     hackedContractAddress,
-    asset: getNameAlias('ethereum', input.address),
+    hackedContractAlias:
+      getContractAlias('ethereum', hackedContractAddress) ??
+      formatAddress(hackedContractAddress),
     assetAddress: input.address,
     amountApprovedSpend: getAmountApprovedSpendFromLog(input),
     owner: getAssetOwnerFromLog(input, { format: 'utf8' }),
@@ -56,8 +72,11 @@ function toWhat(input: Log): What {
   }
 }
 
-function collectCurrentAllowance(acc: Map<string, What>, item: What) {
-  const key = `${item.hackedContract}:${item.asset}`
+function collectCurrentAllowance(
+  acc: Map<string, SpendAllowance>,
+  item: SpendAllowance
+) {
+  const key = `${item.hackedContractAddress}:${item.assetAddress}`
   const previous = acc.get(key)
   if (previous && previous.blockNumber < item.blockNumber) {
     acc.set(key, item)
@@ -68,10 +87,24 @@ function collectCurrentAllowance(acc: Map<string, What>, item: What) {
 }
 
 // does not takin into account the number of ERC20 token decimals
-function simpleTopAmountFirstSort(item: What) {
+function simpleTopAmountFirstSort(item: SpendAllowance) {
   return (
     (item.amountApprovedSpend.length - item.amountApprovedSpend.length) * -1
   )
+}
+
+function useTokenMetadataQuery(tokenAddress: Web3Address[]) {
+  return useQueries({
+    queries: tokenAddress.map((address) => ({
+      queryKey: ['token-client', 'metadata', address],
+      queryFn: () => getTokenMetadata(address),
+      retry: false,
+      refetchInterval: 0,
+      refetchOnMount: false,
+      refetchOnWindowFocus: false,
+      refetchOnReconnect: false
+    })),
+  })
 }
 
 function useAddressSpendApprovalQuery(address: string) {
@@ -81,23 +114,31 @@ function useAddressSpendApprovalQuery(address: string) {
       const logs = await getAddressLogs(address)
       const allowanceMap = logs
         .filter(isHackedContractLog)
-        .map(toWhat)
+        .map(spendAllowanceFrom)
         .reduce(collectCurrentAllowance, new Map())
       return Array.from(allowanceMap.values()).sort(simpleTopAmountFirstSort)
     },
     {
       enabled: isValidAddress(address),
+      retry: 3,
+      refetchInterval: false,
+      refetchOnMount: false,
+      refetchOnWindowFocus: false,
+      refetchOnReconnect: false
     }
   )
 }
 
 function App() {
-  // FIXME: name wanted
-  const [whatList, setWhatList] = useState<What[]>([])
+  // state
+
+  const [spendApprovals, setSpandApprovals] = useState<SpendAllowance[]>([])
   const [addressToCheck, setAddressToCheck] = useState('')
-  // const [logs, setLogs] = useState<any>(null)
   const [errors, setErrors] = useState<Error[]>([])
-  // TODO add router and move wallet check app to /apps/is-my-wallet-safe URL
+
+  // handlers
+
+  // TODO: add router and move wallet check app to /apps/is-my-wallet-safe URL
   const handleAddressCheck = useCallback(async (address: Web3Address) => {
     if (!isValidAddress(address)) {
       console.debug('invalid address in search input:', address)
@@ -108,9 +149,9 @@ function App() {
       const logs = await getAddressLogs(address)
       const allowanceMap = logs
         .filter(isHackedContractLog)
-        .map(toWhat)
+        .map(spendAllowanceFrom)
         .reduce(collectCurrentAllowance, new Map())
-      setWhatList(
+      setSpandApprovals(
         Array.from(allowanceMap.values()).sort(simpleTopAmountFirstSort)
       )
     } catch (err) {
@@ -121,16 +162,22 @@ function App() {
     }
   }, [])
 
+  // data queries
+
   const spendApprovalQuery = useAddressSpendApprovalQuery(addressToCheck)
+  const tokensMetadataQuery = useTokenMetadataQuery(
+    spendApprovalQuery.data
+      ?.map((item) => item.assetAddress)
+      .filter((item) => item != null) ?? []
+  )
+
+  // misc
 
   const handleGetApprovalsForHackedContracts = useCallback(async () => {
     try {
       const logs = await getLogs({
         topics: [ERC20_APPROVAL_TOPIC, null, ETHEREUM_HACKED_CONTRACTS[0]],
       })
-      console.log(
-        Array.from(new Set(logs.map(toWhat).map((item) => item.owner)))
-      )
     } catch (err) {
       console.debug(err)
       if (err instanceof Error) {
@@ -161,9 +208,8 @@ function App() {
                   placeholder="input wallet address to check"
                   enterButton="Check"
                   size="large"
-                  // onSearch={handleAddressCheck}
                   onSearch={setAddressToCheck}
-                  loading={spendApprovalQuery.isLoading}
+                  loading={spendApprovalQuery.isFetching}
                 />
               </Form.Item>
             </div>
@@ -202,25 +248,31 @@ function App() {
                 {spendApprovalQuery.data.length === 0 && (
                   <p>
                     <Typography.Text>
-                      There is no approved funds to spend in known hacked smart
-                      contracts.
+                      No hacked contracts has access to funds in{' '}
+                      {formatAddress(addressToCheck)} wallet
                     </Typography.Text>
                   </p>
                 )}
                 <Table
                   showHeader={false}
-                  pagination={whatList.length > 25 ? undefined : false}
+                  pagination={spendApprovals.length > 25 ? undefined : false}
                   footer={() => (
                     <>
                       <p>
-                        <Typography.Text type="secondary">
+                        <Typography.Text
+                          type="secondary"
+                          className="d12v-text--disclaimer"
+                        >
                           This tool does not gurantee to find all spending
                           approvals some tools may still behave unrespondintly
                           or maliciously.
                         </Typography.Text>
                       </p>
                       <p>
-                        <Typography.Text type="secondary">
+                        <Typography.Text
+                          type="secondary"
+                          className="d12v-text--disclaimer"
+                        >
                           This tool does do it best but does not gurantee to
                           find all possible treats to funds in the wallet, there
                           are many more ways to lose assets using wallets, be
@@ -234,49 +286,54 @@ function App() {
                     {
                       title: '',
                       dataIndex: 'amountApprovedSpend',
-                      key: 'ammountApprovedSpend',
+                      key: 'transactionHash',
                       render: (ammountApprovedSpend) => (
                         <span>
                           {ammountApprovedSpend === '0'
-                            ? 'zero'
-                            : ammountApprovedSpend}{' '}
-                          amount
+                            ? 'you have revoked access'
+                            : `${ammountApprovedSpend} amount`}
                         </span>
                       ),
                     },
                     {
                       title: '',
-                      dataIndex: 'asset',
-                      key: 'asset',
-                      render: (asset, item) => (
+                      dataIndex: 'assetAddress',
+                      key: 'transactionHash',
+                      render: (assetAddress) => (
                         <span>
                           of{' '}
                           <a
-                            href={`https://etherscan.io/address/${item.assetAddress}`}
+                            href={`https://etherscan.io/token/${assetAddress}`}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            {asset}
+                            {nameAlias(
+                              tokensMetadataQuery
+                                .map((q) => q.data)
+                                .filter(isTokenMetadata),
+                              assetAddress
+                            )}
                           </a>
                         </span>
                       ),
                     },
                     {
                       title: '',
-                      dataIndex: 'hackedContract',
-                      key: 'hackedContract',
-                      render: (hackedContract, item) => (
+                      dataIndex: 'hackedContractAlias',
+                      key: 'transactionHash',
+                      render: (hackedContractAlias, item) => (
                         <span>
                           {item.amountApprovedSpend === '0'
-                            ? 'is approved to spend'
+                            ? 'in'
                             : 'is at risk in'}{' '}
                           <a
                             href={`https://etherscan.io/address/${item.hackedContractAddress}`}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            {hackedContract}
-                          </a>
+                            {hackedContractAlias}
+                          </a>{' '}
+                          contract
                         </span>
                       ),
                     },
@@ -300,19 +357,29 @@ function App() {
                 />
                 {isEnv('development') && (
                   <ul>
-                    {whatList.map((item) => (
+                    {spendApprovals.map((item) => (
                       <li key={item.transactionHash}>
                         {item.amountApprovedSpend}{' '}
                         <a
                           href={`https://etherscan.io/address/${item.assetAddress}`}
                         >
-                          {item.asset}
+                          {nameAlias(
+                            tokensMetadataQuery
+                              .map((q) => q.data)
+                              .filter(isTokenMetadata),
+                            item.assetAddress
+                          )}
                         </a>{' '}
                         token at risk in conract{' '}
                         <a
                           href={`https://etherscan.io/address/${item.hackedContractAddress}`}
                         >
-                          {item.hackedContract}
+                          {nameAlias(
+                            tokensMetadataQuery
+                              .map((q) => q.data)
+                              .filter(isTokenMetadata),
+                            item.hackedContractAddress
+                          )}
                         </a>{' '}
                         (
                         <a
@@ -339,7 +406,49 @@ function App() {
                 className="btn"
                 onClick={() =>
                   handleAddressCheck(
-                    '0x198C624C960d128C2B9982131Eef2B9494D8e532'
+                    '0x78b90b4F409764b7f3b2940fb30e32a024c4a07D'
+                  )
+                }
+              >
+                check
+              </button>
+            </p>
+            <p>
+              example of affected address
+              0x50f9F41c76cF7dE9E889b21A3073eb56a2890e39{' '}
+              <button
+                className="btn"
+                onClick={() =>
+                  handleAddressCheck(
+                    '0x50f9F41c76cF7dE9E889b21A3073eb56a2890e39'
+                  )
+                }
+              >
+                check
+              </button>
+            </p>
+            <p>
+              example of affected address
+              0xEC948f0a29cE77412773412D076fBBABa1e67491{' '}
+              <button
+                className="btn"
+                onClick={() =>
+                  handleAddressCheck(
+                    '0xEC948f0a29cE77412773412D076fBBABa1e67491'
+                  )
+                }
+              >
+                check
+              </button>
+            </p>
+            <p>
+              example of affected address
+              0x720da268Cf78f5d68fe7DF02880fa61620097190{' '}
+              <button
+                className="btn"
+                onClick={() =>
+                  handleAddressCheck(
+                    '0x720da268Cf78f5d68fe7DF02880fa61620097190'
                   )
                 }
               >
