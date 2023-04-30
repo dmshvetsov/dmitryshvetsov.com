@@ -102,7 +102,7 @@ function useTokenMetadataQuery(tokenAddress: Web3Address[]) {
       refetchInterval: 0,
       refetchOnMount: false,
       refetchOnWindowFocus: false,
-      refetchOnReconnect: false
+      refetchOnReconnect: false,
     })),
   })
 }
@@ -124,7 +124,7 @@ function useAddressSpendApprovalQuery(address: string) {
       refetchInterval: false,
       refetchOnMount: false,
       refetchOnWindowFocus: false,
-      refetchOnReconnect: false
+      refetchOnReconnect: false,
     }
   )
 }
@@ -178,6 +178,11 @@ function App() {
       const logs = await getLogs({
         topics: [ERC20_APPROVAL_TOPIC, null, ETHEREUM_HACKED_CONTRACTS[0]],
       })
+      console.log(
+        Array.from(
+          new Set(logs.map(spendAllowanceFrom).map((item) => item.owner))
+        )
+      )
     } catch (err) {
       console.debug(err)
       if (err instanceof Error) {
