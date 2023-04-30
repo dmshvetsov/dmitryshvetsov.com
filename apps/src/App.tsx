@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react'
-import { useQuery } from 'react-query'
+import { useQueries, useQuery } from '@tanstack/react-query'
 import {
   ERC20_APPROVAL_TOPIC,
   getApprovedSpenderFromLog,
