@@ -8,6 +8,9 @@ export type TokenMetadata = {
 }
 
 export function isTokenMetadata(input: unknown): input is TokenMetadata {
+  if (input == null) {
+    return false
+  }
   const assume = input as TokenMetadata
   return (
     'symbol' in assume &&

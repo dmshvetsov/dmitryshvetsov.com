@@ -21,6 +21,9 @@ export const ETHEREUM_HACKED_CONTRACTS = Object.freeze([
   // '0x044b75f554b886a065b9567891e45c79542d7357', // arbitrum demo
   // '0x74c764D41B77DBbb4fe771daB1939B00b146894A', // arbitrum demo
   '0x044b75f554b886A065b9567891e45c79542d7357',
+  '0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506', // FIXME remove goerli sushiswap, not hacked, for demo
+  '0x1111111254eeb25477b68fb85ed929f73a960582', // FIXME remove arbiturm 1inch, not hacked, for demo
+  '0x1111111254EEB25477B68fb85Ed929f73A960582'
 ])
 
 type ContractMetadata = {

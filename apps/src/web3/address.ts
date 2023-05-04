@@ -102,7 +102,7 @@ export function getAmountApprovedSpendFromLog(log: Log): string {
 export function getApprovedSpenderFromLog(
   log: Log,
   opts: FromLogsOptions
-): string {
+): Web3Address {
   const formatAs = opts.format ?? 'hex'
   if (log.topics[0] !== ERC20_APPROVAL_TOPIC) {
     throw new Error('not ERC20 approval log')
@@ -115,10 +115,10 @@ export function getApprovedSpenderFromLog(
     return new Web3().eth.abi.decodeParameter(
       'address',
       log.topics[2]
-    ) as unknown as string
+    ) as unknown as Web3Address
   }
 
-  return log.topics[2]
+  return log.topics[2] as Web3Address
 }
 
 export function isValidAddress(input: unknown): boolean {
