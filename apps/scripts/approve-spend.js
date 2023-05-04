@@ -1,5 +1,4 @@
-// NOTE: run this script with env variables included
-// (e.g. with cmd: node -r dotenv/config your_script.js)
+#!/usr/bin/env ./node_modules/.bin/ts-node -r dotenv/config
 
 import assert from 'assert'
 import { erc20ABI } from 'wagmi'
@@ -16,8 +15,8 @@ assert(
 const web3 = new Web3(process.env.VITE_RPC_URL)
 
 const privateKey = process.env.SCRIPTS_ACCOUNT_PRIVATE_KEY
-const spenderAddress = '0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506'
-const assetContractAddress = '0x5c8e156a0bad6f12b72c2e03e53d223dbbe4853c'
+const spenderAddress = '0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506' // SushiSwapRouter goerli
+const assetContractAddress = '0xfad6367E97217cC51b4cd838Cc086831f81d38C2' // tether goerli
 const walletAddress = '0x5c8e156a0bad6f12b72c2e03e53d223dbbe4853c'
 const approveToSpendAmount = 2_000_000_000
 
