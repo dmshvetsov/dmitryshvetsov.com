@@ -45,7 +45,6 @@ export function useSendTx(txConfig: TxConfig) {
     setTriggered(false)
   }, [txConfig])
 
-  console.log('tx config', txConfig)
   const { config } = usePrepareContractWrite(txConfig)
   const {
     data: txData,

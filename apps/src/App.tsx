@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useQueries, useQuery } from '@tanstack/react-query'
 import {
   ERC20_APPROVAL_TOPIC,
@@ -39,7 +39,7 @@ import {
   useAccount,
   useSendTx,
 } from './web3/wallet'
-import { RevokeTransactionConfig, revokeTxConfig } from './web3/abi/erc20'
+import { revokeTxConfig } from './web3/abi/erc20'
 
 function isHackedContractLog(log: Log): boolean {
   return (
@@ -148,26 +148,42 @@ function useAddressSpendApprovalQuery(address: Web3Address) {
   )
 }
 
-type RevokeButtonProps = RevokeTransactionConfig & {
+type RevokeButtonProps = {
+  spendAllowance: SpendAllowance
   tooltipHint: string
   disabled?: boolean
+  onSuccess?: (item: SpendAllowance) => void
 }
 
 function RevokeButton(props: RevokeButtonProps) {
-  const { assetContractAddress, spenderAddress, ...restProps } = props
+  const { spendAllowance, ...restProps } = props
   const revokeQuery = useSendTx(
-    revokeTxConfig({ assetContractAddress, spenderAddress })
+    revokeTxConfig({
+      assetContractAddress: spendAllowance.assetAddress,
+      spenderAddress: spendAllowance.hackedContractAddress,
+    })
   )
 
+  const { onSuccess } = props
+  useEffect(() => {
+    if (typeof onSuccess === 'function' && revokeQuery.isTxApproved === true) {
+      onSuccess(spendAllowance)
+    }
+  }, [revokeQuery.isTxApproved, onSuccess, spendAllowance])
+
   if (revokeQuery.isWaitingForTxApproval) {
-    ;<Button loading disabled={restProps.disabled}>
-      Approve In Wallet
-    </Button>
+    return (
+      <Button loading disabled={restProps.disabled}>
+        Approve In Wallet
+      </Button>
+    )
   }
   if (revokeQuery.isTxApproved) {
-    ;<Button loading disabled={restProps.disabled}>
-      In Progress
-    </Button>
+    return (
+      <Button loading disabled={restProps.disabled}>
+        In Progress
+      </Button>
+    )
   }
   return (
     <Tooltip title={props.tooltipHint}>
@@ -185,7 +201,7 @@ function RevokeButton(props: RevokeButtonProps) {
 function App() {
   // state
 
-  const [spendApprovals, setSpandApprovals] = useState<SpendAllowance[]>([])
+  const [spendApprovals, setSpendApprovals] = useState<SpendAllowance[]>([])
   const [addressToCheck, setAddressToCheck] = useState('')
   const [errors, setErrors] = useState<Error[]>([])
   const walletAccount = useAccount()
@@ -193,28 +209,31 @@ function App() {
   // handlers
 
   // TODO: add router and move wallet check app to /apps/is-my-wallet-safe URL
-  const handleAddressCheck = useCallback(async (address: Web3Address) => {
-    if (!isValidAddress(address)) {
-      console.debug('invalid address in search input:', address)
-      return
-    }
-
-    try {
-      const logs = await getAddressLogs(address)
-      const allowanceMap = logs
-        .filter(isHackedContractLog)
-        .map(spendAllowanceFrom)
-        .reduce(collectCurrentAllowance, new Map())
-      setSpandApprovals(
-        Array.from(allowanceMap.values()).sort(simpleTopAmountFirstSort)
-      )
-    } catch (err) {
-      console.debug(err)
-      if (err instanceof Error) {
-        setErrors([...errors, err])
+  const handleAddressCheck = useCallback(
+    async (address: Web3Address) => {
+      if (!isValidAddress(address)) {
+        console.debug('invalid address in search input:', address)
+        return
       }
-    }
-  }, [errors])
+
+      try {
+        const logs = await getAddressLogs(address)
+        const allowanceMap = logs
+          .filter(isHackedContractLog)
+          .map(spendAllowanceFrom)
+          .reduce(collectCurrentAllowance, new Map())
+        setSpendApprovals(
+          Array.from(allowanceMap.values()).sort(simpleTopAmountFirstSort)
+        )
+      } catch (err) {
+        console.debug(err)
+        if (err instanceof Error) {
+          setErrors([...errors, err])
+        }
+      }
+    },
+    [errors]
+  )
 
   // data queries
 
@@ -417,33 +436,56 @@ function App() {
                         title: '',
                         dataIndex: 'transactionHash',
                         key: 'transactionHash',
-                        render: (transactionHash) => (
+                        render: (transactionHash, item) => (
                           <a
                             href={`https://etherscan.io/tx/${transactionHash}`}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            approval transaction{' '}
+                            {item.amountApprovedSpend === '0'
+                              ? 'revoke transaction'
+                              : 'approval transaction'}{' '}
                             {formatTx(transactionHash, 'short')}
                           </a>
                         ),
                       },
                       {
                         render: (_, item) => {
-                          if (item.amountApprovedSpend !== '0') {
-                            const tooltipHint = walletAccount.isConnected
-                              ? 'click revoke and sing a transaction to revoke access to your funds'
-                              : 'connect wallet to revoke access to your funds from the contract'
-                            return (
-                              <RevokeButton
-                                tooltipHint={tooltipHint}
-                                assetContractAddress={item.assetAddress}
-                                spenderAddress={item.hackedContractAddress}
-                                disabled={!walletAccount.isConnected}
-                              />
-                            )
+                          if (item.amountApprovedSpend === '0') {
+                            return null
                           }
-                          return null
+                          const tooltipHint = walletAccount.isConnected
+                            ? 'click revoke and sing a transaction to revoke access to your funds'
+                            : 'connect wallet to revoke access to your funds from the contract'
+                          return (
+                            <RevokeButton
+                              spendAllowance={item}
+                              tooltipHint={tooltipHint}
+                              disabled={!walletAccount.isConnected}
+                              onSuccess={(revokedItem) => {
+                                setSpendApprovals((prev) => {
+                                  const idxFound = prev.findIndex(
+                                    (item) =>
+                                      item.hackedContractAddress ===
+                                        revokedItem.hackedContractAddress &&
+                                      item.assetAddress ===
+                                        revokedItem.assetAddress
+                                  )
+                                  if (idxFound === -1) {
+                                    return prev
+                                  }
+                                  const itemFound = prev[idxFound]
+                                  return [
+                                    ...prev.slice(0, idxFound),
+                                    Object.assign({}, itemFound, {
+                                      amountApprovedSpend: '0',
+                                    }),
+                                    ...prev.slice(idxFound),
+                                  ]
+                                })
+                              }}
+                            />
+                          )
                         },
                       },
                     ]}
