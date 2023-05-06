@@ -21,7 +21,6 @@ import {
   Input,
   Layout,
   Row,
-  Space,
   Table,
   Tooltip,
   Typography,
@@ -161,18 +160,22 @@ function RevokeButton(props: RevokeButtonProps) {
   )
 
   if (revokeQuery.isWaitingForTxApproval) {
-    <Button loading disabled={restProps.disabled}>
+    ;<Button loading disabled={restProps.disabled}>
       Approve In Wallet
     </Button>
   }
   if (revokeQuery.isTxApproved) {
-    <Button loading disabled={restProps.disabled}>
+    ;<Button loading disabled={restProps.disabled}>
       In Progress
     </Button>
   }
   return (
     <Tooltip title={props.tooltipHint}>
-      <Button loading={revokeQuery.isWaitingForTxApproval} disabled={restProps.disabled} onClick={revokeQuery.send}>
+      <Button
+        loading={revokeQuery.isWaitingForTxApproval}
+        disabled={restProps.disabled}
+        onClick={revokeQuery.send}
+      >
         Revoke
       </Button>
     </Tooltip>
@@ -211,7 +214,7 @@ function App() {
         setErrors([...errors, err])
       }
     }
-  }, [])
+  }, [errors])
 
   // data queries
 
@@ -244,7 +247,7 @@ function App() {
         setErrors([...errors, err])
       }
     }
-  }, [])
+  }, [errors])
 
   return (
     <WalletProvider>
@@ -316,7 +319,8 @@ function App() {
                     <p>
                       <Typography.Text>
                         No hacked contracts has access to funds in{' '}
-                        {formatAddress(addressToCheck)} wallet. There is no need to take any action for this wallet here.
+                        {formatAddress(addressToCheck)} wallet. There is no need
+                        to take any action for this wallet here.
                       </Typography.Text>
                     </p>
                   )}
