@@ -21,6 +21,8 @@ import {
   Input,
   Layout,
   Row,
+  Select,
+  Space,
   Table,
   Tooltip,
   Typography,
@@ -40,6 +42,7 @@ import {
   useSendTx,
 } from './web3/wallet'
 import { revokeTxConfig } from './web3/abi/erc20'
+import { formatAmount } from './web3/token'
 
 function isHackedContractLog(log: Log): boolean {
   return (
@@ -124,6 +127,22 @@ function useTokenMetadataQuery(tokenAddress: Web3Address[]) {
   })
 }
 
+function useTokenMetadata(tokenAddresses: Web3Address[]) {
+  const query = useTokenMetadataQuery(tokenAddresses)
+  const dataList = query.map((q) => q.data).filter(isTokenMetadata)
+  const forAddress = useCallback(
+    (assetAddress: Web3Address) => {
+      const foundMetadata = dataList.find(
+        (item) => item.address.toLowerCase() === assetAddress.toLowerCase()
+      )
+      return foundMetadata ?? null
+    },
+    [dataList]
+  )
+
+  return { forAddress }
+}
+
 function useAddressSpendApprovalQuery(address: Web3Address) {
   return useQuery(
     ['provider', 'getLogs', address],
@@ -158,7 +177,7 @@ function RevokeButton(props: RevokeButtonProps) {
     revokeTxConfig({
       assetContractAddress: spendAllowance.assetAddress,
       spenderAddress: spendAllowance.hackedContractAddress,
-    }),
+    })
   )
 
   if (revokeQuery.isWaitingForTxApproval) {
@@ -195,6 +214,23 @@ function RevokeButton(props: RevokeButtonProps) {
         Revoke
       </Button>
     </Tooltip>
+  )
+}
+
+function ChainSelect() {
+  return (
+    <Select defaultValue="mainnet">
+      <Select.Option value="mainnet">Ethereum</Select.Option>
+      <Select.Option value="arbitrum" disabled>
+        Arbitrum (comming soon)
+      </Select.Option>
+      <Select.Option value="bsc" disabled>
+        Binance SC (comming soon)
+      </Select.Option>
+      <Select.Option value="polygon" disabled>
+        Polygon (comming soon)
+      </Select.Option>
+    </Select>
   )
 }
 
@@ -245,6 +281,11 @@ function App() {
       ?.map((item) => item.assetAddress)
       .filter((item) => item != null) ?? []
   )
+  const tokenMetadata = useTokenMetadata(
+    spendApprovalQuery.data
+      ?.map((item) => item.assetAddress)
+      .filter((item) => item != null) ?? []
+  )
 
   // contracts queries
 
@@ -276,25 +317,32 @@ function App() {
             <Typography.Title>Is my crypto wallet safe?</Typography.Title>
           </Row>
           <Row className="d12v-layout--row">
-            <Col sm={24} lg={12}>
+            <Col sm={24} lg={13}>
               <div>
-                <Form.Item
-                  extra={
-                    addressToCheck !== '' && !isValidAddress(addressToCheck) ? (
-                      <Typography.Text type="danger">
-                        invalid wallet address
-                      </Typography.Text>
-                    ) : undefined
-                  }
-                >
-                  <Input.Search
-                    placeholder="input wallet address to check"
-                    enterButton="Check"
-                    size="large"
-                    onSearch={setAddressToCheck}
-                    loading={spendApprovalQuery.isFetching}
-                  />
-                </Form.Item>
+                <Space.Compact block size="large">
+                  <Form.Item style={{ width: '20%' }}>
+                    <ChainSelect />
+                  </Form.Item>
+                  <Form.Item
+                    style={{ width: '80%' }}
+                    extra={
+                      addressToCheck !== '' &&
+                      !isValidAddress(addressToCheck) ? (
+                        <Typography.Text type="danger">
+                          invalid wallet address
+                        </Typography.Text>
+                      ) : undefined
+                    }
+                  >
+                    <Input.Search
+                      placeholder="input wallet address to check"
+                      enterButton="Check"
+                      size="large"
+                      onSearch={setAddressToCheck}
+                      loading={spendApprovalQuery.isFetching}
+                    />
+                  </Form.Item>
+                </Space.Compact>
               </div>
             </Col>
           </Row>
@@ -382,13 +430,30 @@ function App() {
                         title: '',
                         dataIndex: 'amountApprovedSpend',
                         key: 'transactionHash',
-                        render: (ammountApprovedSpend) => (
-                          <span>
-                            {ammountApprovedSpend === '0'
-                              ? `you've revoked access`
-                              : ammountApprovedSpend}
-                          </span>
-                        ),
+                        render: (ammountApprovedSpend, item) => {
+                          if (ammountApprovedSpend === '0') {
+                            return <span>you've revoked access</span>
+                          }
+                          const assetTokenMetadata = tokenMetadata.forAddress(
+                            item.assetAddress
+                          )
+                          if (assetTokenMetadata != null) {
+                            return (
+                              <span>
+                                {formatAmount(
+                                  ammountApprovedSpend,
+                                  assetTokenMetadata,
+                                  { aprox: 4 }
+                                )}
+                              </span>
+                            )
+                          }
+                          return (
+                            <Tooltip title="visit the link of the apporval transaction to see exact amount approved to spend">
+                              <span>some amount</span>
+                            </Tooltip>
+                          )
+                        },
                       },
                       {
                         title: '',

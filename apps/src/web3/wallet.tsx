@@ -38,8 +38,8 @@ export function WalletButton() {
 }
 
 /**
-  * Returns current active chain in the app
-  */
+ * Returns current active chain in the app
+ */
 function useChain(): { chain: Chain } {
   // currently hardcoded
   return { chain: ALL_CHAINS.mainnet }
