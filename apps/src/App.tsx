@@ -166,10 +166,10 @@ function RevokeButton(props: RevokeButtonProps) {
 
   const { onSuccess } = props
   useEffect(() => {
-    if (typeof onSuccess === 'function' && revokeQuery.isTxApproved === true) {
+    if (typeof onSuccess === 'function' && revokeQuery.isTxConfirmed === true) {
       onSuccess(spendAllowance)
     }
-  }, [revokeQuery.isTxApproved, onSuccess, spendAllowance])
+  }, [revokeQuery.isTxConfirmed, onSuccess, spendAllowance])
 
   if (revokeQuery.isWaitingForTxApproval) {
     return (
@@ -178,7 +178,7 @@ function RevokeButton(props: RevokeButtonProps) {
       </Button>
     )
   }
-  if (revokeQuery.isTxApproved) {
+  if (revokeQuery.isWaitingForComfirmation) {
     return (
       <Button loading disabled={restProps.disabled}>
         In Progress
