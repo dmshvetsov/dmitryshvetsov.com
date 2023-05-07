@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { useQueries, useQuery } from '@tanstack/react-query'
 import {
   ERC20_APPROVAL_TOPIC,
@@ -106,17 +106,15 @@ function collectCurrentAllowance(
 }
 
 // does not takin into account the number of ERC20 token decimals
-function simpleTopAmountFirstSort(item: SpendAllowance) {
-  return (
-    (item.amountApprovedSpend.length - item.amountApprovedSpend.length) * -1
-  )
+function simpleTopAmountFirstSort(l: SpendAllowance, r: SpendAllowance) {
+  return (l.amountApprovedSpend.length - r.amountApprovedSpend.length) * -1
 }
 
 function useTokenMetadataQuery(tokenAddress: Web3Address[]) {
   return useQueries({
     queries: tokenAddress.map((address) => ({
       queryKey: ['token-client', 'metadata', address],
-      queryFn: () => getTokenMetadata(address),
+      queryFn: () => getTokenMetadata('eth', address),
       retry: false,
       refetchInterval: 0,
       refetchOnMount: false,
@@ -152,7 +150,6 @@ type RevokeButtonProps = {
   spendAllowance: SpendAllowance
   tooltipHint: string
   disabled?: boolean
-  onSuccess?: (item: SpendAllowance) => void
 }
 
 function RevokeButton(props: RevokeButtonProps) {
@@ -161,15 +158,8 @@ function RevokeButton(props: RevokeButtonProps) {
     revokeTxConfig({
       assetContractAddress: spendAllowance.assetAddress,
       spenderAddress: spendAllowance.hackedContractAddress,
-    })
+    }),
   )
-
-  const { onSuccess } = props
-  useEffect(() => {
-    if (typeof onSuccess === 'function' && revokeQuery.isTxConfirmed === true) {
-      onSuccess(spendAllowance)
-    }
-  }, [revokeQuery.isTxConfirmed, onSuccess, spendAllowance])
 
   if (revokeQuery.isWaitingForTxApproval) {
     return (
@@ -184,6 +174,16 @@ function RevokeButton(props: RevokeButtonProps) {
         In Progress
       </Button>
     )
+  }
+  if (revokeQuery.isTxConfirmed) {
+    if (revokeQuery.txData?.hash) {
+      return (
+        <a href={`https://etherscan.io/tx/${revokeQuery.txData.hash}`}>
+          revoke transaction {formatTx(revokeQuery.txData.hash, 'short')}
+        </a>
+      )
+    }
+    return <span>successfuly revoked</span>
   }
   return (
     <Tooltip title={props.tooltipHint}>
@@ -385,7 +385,7 @@ function App() {
                         render: (ammountApprovedSpend) => (
                           <span>
                             {ammountApprovedSpend === '0'
-                              ? 'you have revoked access'
+                              ? `you've revoked access`
                               : ammountApprovedSpend}
                           </span>
                         ),
@@ -419,7 +419,7 @@ function App() {
                         render: (hackedContractAlias, item) => (
                           <span>
                             {item.amountApprovedSpend === '0'
-                              ? 'in'
+                              ? 'for'
                               : 'is at risk in'}{' '}
                             <a
                               href={`https://etherscan.io/address/${item.hackedContractAddress}`}
@@ -462,28 +462,6 @@ function App() {
                               spendAllowance={item}
                               tooltipHint={tooltipHint}
                               disabled={!walletAccount.isConnected}
-                              onSuccess={(revokedItem) => {
-                                setSpendApprovals((prev) => {
-                                  const idxFound = prev.findIndex(
-                                    (item) =>
-                                      item.hackedContractAddress ===
-                                        revokedItem.hackedContractAddress &&
-                                      item.assetAddress ===
-                                        revokedItem.assetAddress
-                                  )
-                                  if (idxFound === -1) {
-                                    return prev
-                                  }
-                                  const itemFound = prev[idxFound]
-                                  return [
-                                    ...prev.slice(0, idxFound),
-                                    Object.assign({}, itemFound, {
-                                      amountApprovedSpend: '0',
-                                    }),
-                                    ...prev.slice(idxFound),
-                                  ]
-                                })
-                              }}
                             />
                           )
                         },

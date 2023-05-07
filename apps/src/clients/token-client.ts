@@ -23,7 +23,7 @@ export function isTokenMetadata(input: unknown): input is TokenMetadata {
 function getClient() {
   return axios.create({
     baseURL:
-      'https://raw.githubusercontent.com/ethereum-lists/tokens/master/tokens/eth',
+      'https://raw.githubusercontent.com/ethereum-lists/tokens/master/tokens',
     headers: {
       accept: 'application/json',
     },
@@ -32,9 +32,10 @@ function getClient() {
 }
 
 export async function getTokenMetadata(
+  chain: 'eth' | 'arb',
   tokenAddress: string
 ): Promise<TokenMetadata | null> {
-  const res = await getClient().get(`${tokenAddress}.json`)
+  const res = await getClient().get(`/${chain}/${tokenAddress}.json`)
   if (isTokenMetadata(res.data)) {
     return res.data
   }

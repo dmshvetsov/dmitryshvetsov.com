@@ -7,12 +7,14 @@ import {
   useContractWrite,
   usePrepareContractWrite,
   useWaitForTransaction,
+  Chain,
 } from 'wagmi'
 import { TxConfig } from './types'
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { mainnet, goerli, arbitrum } from 'wagmi/chains'
+import * as ALL_CHAINS from 'wagmi/chains'
 
-const chains = [mainnet, arbitrum, goerli]
+const chains = [ALL_CHAINS.mainnet, ALL_CHAINS.arbitrum, ALL_CHAINS.goerli]
+
 const projectId = '24a4a2799d98c9623ab70d8a0c1f624b'
 
 const { provider } = configureChains(chains, [w3mProvider({ projectId })])
@@ -36,6 +38,14 @@ export function WalletButton() {
 }
 
 /**
+  * Returns current active chain in the app
+  */
+function useChain(): { chain: Chain } {
+  // currently hardcoded
+  return { chain: ALL_CHAINS.mainnet }
+}
+
+/**
  * Generic hook to send contract write transactions
  */
 export function useSendTx(txConfig: TxConfig) {
@@ -45,20 +55,22 @@ export function useSendTx(txConfig: TxConfig) {
     setTriggered(false)
   }, [txConfig])
 
-  const { config } = usePrepareContractWrite(txConfig)
+  const { chain } = useChain()
+
+  const { config } = usePrepareContractWrite({ ...txConfig, chainId: chain.id })
+  console.debug('tx config:', config)
   const {
     data: txData,
     isError: isApprovalError,
     isLoading: isWaitingForTxApproval,
     isSuccess: isTxApproved,
     write,
-  // } = useContractWrite(isTriggered ? config : undefined)
   } = useContractWrite(config)
   const {
     isError: isTxError,
     isLoading: isWaitingForComfirmation,
     isSuccess: isTxConfirmed,
-  } = useWaitForTransaction({ hash: isTriggered ? txData?.hash : undefined })
+  } = useWaitForTransaction({ hash: txData?.hash, chainId: chain.id })
 
   const send = useCallback(() => {
     if (write != null && !isTriggered) {
