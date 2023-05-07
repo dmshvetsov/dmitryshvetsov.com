@@ -167,29 +167,32 @@ function useAddressSpendApprovalQuery(address: Web3Address) {
 
 type RevokeButtonProps = {
   spendAllowance: SpendAllowance
-  tooltipHint: string
-  disabled?: boolean
 }
 
 function RevokeButton(props: RevokeButtonProps) {
-  const { spendAllowance, ...restProps } = props
+  const walletAccount = useAccount()
+
+  const isDisabled =
+    walletAccount.isConnected !== true ||
+    walletAccount.address !== props.spendAllowance.owner
+
   const revokeQuery = useSendTx(
     revokeTxConfig({
-      assetContractAddress: spendAllowance.assetAddress,
-      spenderAddress: spendAllowance.hackedContractAddress,
+      assetContractAddress: props.spendAllowance.assetAddress,
+      spenderAddress: props.spendAllowance.hackedContractAddress,
     })
   )
 
   if (revokeQuery.isWaitingForTxApproval) {
     return (
-      <Button loading disabled={restProps.disabled}>
+      <Button loading disabled={isDisabled}>
         Approve In Wallet
       </Button>
     )
   }
   if (revokeQuery.isWaitingForComfirmation) {
     return (
-      <Button loading disabled={restProps.disabled}>
+      <Button loading disabled={isDisabled}>
         In Progress
       </Button>
     )
@@ -204,11 +207,22 @@ function RevokeButton(props: RevokeButtonProps) {
     }
     return <span>successfuly revoked</span>
   }
+
+  let tooltipHint =
+    'connect wallet to revoke access to your funds from the contract'
+  if (walletAccount.isConnected) {
+    tooltipHint =
+      'click revoke and sing a transaction to revoke access to your funds'
+  }
+  if (walletAccount.address !== props.spendAllowance.owner) {
+    tooltipHint =
+      'you can only revoke spend allowance to funds of the connected wallet'
+  }
   return (
-    <Tooltip title={props.tooltipHint}>
+    <Tooltip title={tooltipHint}>
       <Button
         loading={revokeQuery.isWaitingForTxApproval}
-        disabled={restProps.disabled}
+        disabled={isDisabled}
         onClick={revokeQuery.send}
       >
         Revoke
@@ -240,7 +254,6 @@ function App() {
   const [spendApprovals, setSpendApprovals] = useState<SpendAllowance[]>([])
   const [addressToCheck, setAddressToCheck] = useState('')
   const [errors, setErrors] = useState<Error[]>([])
-  const walletAccount = useAccount()
 
   // handlers
 
@@ -519,16 +532,7 @@ function App() {
                           if (item.amountApprovedSpend === '0') {
                             return null
                           }
-                          const tooltipHint = walletAccount.isConnected
-                            ? 'click revoke and sing a transaction to revoke access to your funds'
-                            : 'connect wallet to revoke access to your funds from the contract'
-                          return (
-                            <RevokeButton
-                              spendAllowance={item}
-                              tooltipHint={tooltipHint}
-                              disabled={!walletAccount.isConnected}
-                            />
-                          )
+                          return <RevokeButton spendAllowance={item} />
                         },
                       },
                     ]}
