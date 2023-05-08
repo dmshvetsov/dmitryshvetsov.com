@@ -28,20 +28,18 @@ jobs:
           node-version: 18.14.1
           corepack: true
 
-      - name: Run yarn install
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: install
-          dir: ./apps
+      - name: Install npm dependencies
+        run: npm install
+        working-directory: ./apps
 
       - name: Build apps project
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: build
-          dir: ./apps
+        run: npm run build
+        working-directory: ./apps
+        env:
+          VITE_RPC_URL: ${{ secrets.RPC_URL }}
 
       - name: Inject apps into the static site
-        run: mv apps/dist public/apps
+        run: mkdir -p ./public/apps && mv ./apps/dist ./public/apps/is-my-crypto-wallet-safe
 
       - name: Publish
         uses: cloudflare/pages-action@1

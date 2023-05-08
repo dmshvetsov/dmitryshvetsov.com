@@ -12,4 +12,3 @@ Release parent Zola project. See parent README.md file for more information how 
 
 - React
 - Vite
-- yarn
