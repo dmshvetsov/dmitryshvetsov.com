@@ -2,6 +2,16 @@
 
 [dmitryshvetsov.com](https://dmitryshvetsov.com)
 
+## Content
+
+Some publications are timeless and can be updated with additional thoughts or improved over time, this kind of publications should not have a published date but need last updated date. This is more like how to content or tutorials like.
+
+ Some publications are time sensitive and require published date and disclaimer that it is what I thought at that point in time.
+
+ Shorts are like short YouTube videos intended to grow content with less effort and try ideas quickly.
+
+ All post have twitter search link where visitors can see tweets about article, comments and discussions.
+
 ## Releasing updates
 
 Publish changes in the apps if any. This process is manual for now.
