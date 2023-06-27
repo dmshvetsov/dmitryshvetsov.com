@@ -1,6 +1,6 @@
 +++
 title = "List of articles"
 sort_by = "date"
-template = "articles.html"
+template = "publications.html"
 page_template = "article_page.html"
 +++
