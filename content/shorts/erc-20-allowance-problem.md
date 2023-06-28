@@ -27,6 +27,6 @@ Gasless spend approval ERC-2612 is another solution to the allowance problem but
 
 Newer ERC-1155 standard only amplify the problem. ERC-1155 contracts may have more than one asset in a single contract and do have a function to delegate right to transfer all assets without any limits.
 
-ERC-20 allowance mechanism cannot be the future of finance for the masses. We need better technology but while we build it use the amazing [Revoke.cash web app](https://revoke.cash) to check your current allowance and [is my crypto wallet safe app](https://dmitryshvetsov.com/apps/is-my-crypto-wallet-safe/) to check if you have any allowance in hacked smart contracts.
+ERC-20 allowance mechanism cannot be the future of finance for the masses. We need better technology but while we build it use the amazing [Revoke.cash web app](https://revoke.cash) to revoke risky allowances and [is my crypto wallet safe app](https://dmitryshvetsov.com/apps/is-my-crypto-wallet-safe/) to check if you have allowances in hacked smart contracts.
 
-You can help and contribute by reporting hacked smart contracts to me on twitter or submitting a pull request to the list of hacked smart contracts repository [https://github.com/dmshvetsov/hacked-smart-contracts](https://github.com/dmshvetsov/hacked-smart-contracts)
+**You can help and contribute** by reporting hacked smart contracts to me on twitter or submitting a pull request to the list of hacked smart contracts repository [https://github.com/dmshvetsov/hacked-smart-contracts](https://github.com/dmshvetsov/hacked-smart-contracts)
