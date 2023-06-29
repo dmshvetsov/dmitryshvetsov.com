@@ -13,7 +13,7 @@ To use ERC-20 tokens in DeFi protocols such as Sushiswap you must approve DApp t
 
 Some time ago smart contract developers come up with tiny additional standard to ERC-20 that allows DApps to ask for unlimited allowance for your tokens which "enables" ordinary users to lose everything.
 
-Ordinary users tend to listen what other saying and people tend to say "funds in a wallet". That's wrong. Funds are on-chain and your wallet is the key to do stuff on-chain.
+Ordinary users tend to listen what other saying and people tend to say "funds in a wallet". That's wrong. Crypto assets such as tokens, native coins, and NFTs are on-chain and your wallet is the key to do stuff on-chain.
 
 And here is the key idea: **"not your keys, not your crypto" is actually not the full truth in EVM ecosystem.** ERC-20 allowance means you grant full rights to use your crypto to an approved contract – known as a spender.
 
