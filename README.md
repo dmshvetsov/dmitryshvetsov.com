@@ -2,6 +2,10 @@
 
 [dmitryshvetsov.com](https://dmitryshvetsov.com)
 
+## Develop
+
+    $ zola serve --drafts
+
 ## Content
 
 Some publications are timeless and can be updated with additional thoughts or improved over time, this kind of publications should not have a published date but need last updated date. This is more like how to content or tutorials like.
