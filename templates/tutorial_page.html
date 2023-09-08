@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="ds-system ds-breadcrumbs"><a href="/">back to home</a> &rarr; <a href="/tutorial">explore more tutorials</a></div>
+<div class="ds-system">{{ page.date }} <a href="/tutorial">#tutorials</a></div>
+<h1>
+  {{ page.title }}
+</h1>
+{{ page.content | safe }}
+<div class="ds-system ds-footer--cta"><a href="https://twitter.com/search?q={{ page.permalink | safe }}">discuss on twitter</a></div>
+{% endblock content %}

@@ -4,5 +4,5 @@ draft = true
 path = '/all'
 sort_by = "title"
 template = "publications.html"
-page_template = "article_page.html"
+page_template = "tutorial_page.html"
 +++
