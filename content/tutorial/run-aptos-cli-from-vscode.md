@@ -1,6 +1,5 @@
 +++
-title = "[Draft] Tutorial: run Aptos CLI commands from VSCode with tasks"
-draft = true
+title = "Tutorial: run Aptos CLI commands from VSCode with tasks"
 date = '2023-09-08'
 +++
 
