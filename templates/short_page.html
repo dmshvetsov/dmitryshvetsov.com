@@ -9,7 +9,7 @@
 {{ page.content | safe }}
 
 <div class="ds-system ds-footer--cta">
-  <a href="https://twitter.com/search?q={{ permalink | safe }}">discuss on twitter</a> /
-  <a href="https://github.com/dmshvetsov/dmitryshvetsov.com/edit/master/content/{{ relative_path }}">edit this page</a>
+  <a href="https://twitter.com/search?q={{ page.permalink | safe }}">discuss on twitter</a> /
+  <a href="https://github.com/dmshvetsov/dmitryshvetsov.com/edit/master/content/{{ page.relative_path }}">edit this page</a>
 </div>
 {% endblock content %}
