@@ -3,7 +3,9 @@ title = "Tutorial: run Aptos CLI commands from VSCode with tasks"
 date = '2023-09-08'
 +++
 
-This tutorial is written for nix-like operating systems as Linux, Unix, and Mac OS. Although, if you an advance user, you can replicate below solution on your operating system.
+In this tutorial, you will learn how to streamline the process of running `aptos move` commands without leaving VSCode or touching your mouse which is powerful and fast. I will use Aptos CLI "test" command as an example, and the idea below can be applied to any CLI utility you can imagine.
+
+_Note, this tutorial is written for nix-like operating systems as Linux, Unix, and Mac OS. Although, if you an advance user, you can replicate the below solution on your operating system._
 
 ---
 
