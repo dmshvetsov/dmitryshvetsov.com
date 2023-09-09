@@ -94,5 +94,6 @@ Now you are able to open a command palette in VSCode with `cmd+shift+p` on Mac O
 
 ## further reading
 
-- [learn make in Y minutes](https://learnxinyminutes.com/docs/make/)
 - [source code for the tutorial](https://github.com/dmshvetsov/aptos_hello_blockchain_example)
+- [learn make in Y minutes](https://learnxinyminutes.com/docs/make/)
+- [learn how to develop Move smart-contracts with Overmind community](https://overmind.xyz/?utm_source=magic-dima)
