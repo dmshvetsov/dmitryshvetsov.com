@@ -27,9 +27,11 @@ When you use `cargo build-sbf` it uses `rustc` installed with Solana tools.
 
 ## How to fix
 
-Install newer Solana tools
+To fix the error, you need to get the latest version or newer enough for your program dependencies of Solana tools. Run the following command to upgrade:
 
     $ solana-install init 1.16.15
+
+You may want to replace "1.16.15" with [the latest available version](https://github.com/solana-labs/solana/releases) or required version (see the build error message you got).
 
 In case if you do not have `solana-install` CLI utility you can install it on MacOS & Linux with the command:
 
