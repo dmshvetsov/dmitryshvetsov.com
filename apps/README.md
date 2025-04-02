@@ -4,9 +4,9 @@
 
 Run:
 
-    $ yarn build && yarn inject
+    $ npm run build && npm run inject
 
-Release parent Zola project. See parent README.md file for more information how to release the parent porject.
+Release parent Zola project. See parent README.md file for more information how to release the parent project.
 
 ## Build with
 
