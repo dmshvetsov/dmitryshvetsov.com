@@ -30,7 +30,7 @@ Use params pattern:
 
 `getTopTeams({ range: "week", list: teams, filter: filter, order: Ordering.DESC, cache: chacheManager, formatter: formatter })` 
 
-Nevertheless, the first version is ugly the second is bad.
+Nevertheless, the first version is ugly the second is bad and this is a topic for another article/short note.
 
 * * *
 
