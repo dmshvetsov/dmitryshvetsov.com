@@ -20,15 +20,13 @@ Instead, pass an **object / hash / struct**, call it "options" (usually when it 
 
 All the `null` or undefined arguments disappear, and what remains becomes readable.
 
-Worth mention it is also not a good idea to have multiple positional arguments when they are not literal value 
-
-Worth mentioning: it’s also not a good idea to have multiple positional arguments even when they’re not literal values:
+Worth mentioning, it’s also not a good idea to have multiple positional arguments even when they’re not literal values:
 
 `getTopTeams("week", teams, filter, Ordering.DESC, chacheManager, formatter)`
 
-Same problem - zero context, need to keep position in mind.
+Same problem - zero context, need to keep arguments positions in mind.
 
-Use params pattern
+Use params pattern:
 
 `getTopTeams({ range: "week", list: teams, filter: filter, order: Ordering.DESC, cache: chacheManager, formatter: formatter })` 
 
